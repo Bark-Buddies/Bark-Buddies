@@ -38,6 +38,8 @@ Images of dogs, table of fictitious users that have already signed up to match w
 
 ## Domain Model
 
-![Domain Model](Images/domainModel.png)
+![Domain Model](Images/domainmodel.png)
 
 ## Database Schema Diagram
+
+We are using a local storage.
