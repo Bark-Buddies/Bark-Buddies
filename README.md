@@ -35,3 +35,9 @@ Images of dogs, table of fictitious users that have already signed up to match w
 ## Project Management
 
 [Monday work management](https://dewandths-team.monday.com/boards/5486701399/pulses/5495125766)
+
+## Domain Model
+
+![Domain Model](Images/domainModel.png)
+
+## Database Schema Diagram
