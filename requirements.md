@@ -2,14 +2,14 @@
 
 ## Vision
 
-The vision of this app is to help dog lovers find a play date for their dogs by using an easy, efficient app. Many dog owners want to find a play date for their dog but don't know much people in their local area. This app is to fix that problem and help connect dog owners together in their local area. This app solves your problems of findng a play date for your dogs.
+The vision of this app is to help dog lovers find a play date for their dogs by using an easy, efficient app. Many dog owners want to find a play date for their dog but don't know much people in their local area. This app is to fix that problem and help connect dog owners together in their local area. This app solves your problems of finding a play date for your dogs.
 
 ## Scope
 
 ### In Scope
 
 This product will collect user information and match dog owners with other dog owners in their local area (zip code).
-We will have a form where users input their information about themselves and their dog. The information we will collect from the user is their name, city, state, zip code, and email. We will collect information about the users dog, which will be the dogs name, breed, age, temperment, size, activity level, special accomodations, spayed or neutered, favroite activity, up-to-date vaccinations, service dog, and whether they get along with males/females. There will also be a section where the user can upload a photo of your dog. This website will show appropriate dog matches after entering the user information, along with a map that shows dog parks that are located between the user and their dog matches.
+We will have a form where users input their information about themselves and their dog. The information we will collect from the user is their name, city, state, zip code, and email. We will collect information about the users dog, which will be the dogs name, breed, age, temperament, size, activity level, special accommodations, spayed or neutered, favorite activity, up-to-date vaccinations, service dog, and whether they get along with males/females. There will also be a section where the user can upload a photo of your dog. This website will show appropriate dog matches after entering the user information, along with a map that shows dog parks that are located between the user and their dog matches.
 
 ### Out of Scope
 
