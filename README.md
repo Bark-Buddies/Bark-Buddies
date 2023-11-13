@@ -20,3 +20,11 @@ It's hard finding dog playdates for my two dogs. One of them is an older Chow Ch
 ## MVP
 
 Images of dogs, table of fictitious users that have already signed up to match with, google maps API, user input form for dogs info, dropdown menus and check boxes, contact method for users.
+
+## Wireframe
+
+![Wireframe page 1](Images/wireframe1.png)
+
+![Wireframe page 2](Images/wireframe2.png)
+
+![Wireframe page 3](Images/wireframe3.png)
