@@ -1,0 +1,19 @@
+{
+    "locations": [
+      {
+        "name": "Mountlake Terrace Off-leash Dog Park",
+        "latitude": 47.792622,
+        "longitude": -122.305313
+      },
+      {
+        "name": "Tambark Creek Off-Leash Dog Park",
+        "latitude": 47.839249,
+        "longitude": -122.185699
+      },
+      {
+        "name": "Lynndale Off Leash Dog Area",
+        "latitude": 47.830826,
+        "longitude": -122.336136
+      }
+    ]
+}
