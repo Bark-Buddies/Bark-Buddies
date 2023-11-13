@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Park Finder</title>
-    <!-- Include Bing Maps API script -->
-    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initializeMap&key=AnpJZ-2lFGLVVyCyHWkIFWo1vrj_AkLEI3aonyWTcH-0RAk-I37Nr91X-6hIiuUr" async defer></script>
-    <!-- Include your custom JavaScript file -->
-    <script src="map.js"></script>
-
-    <!-- Include your custom CSS file -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Dog Park Finder</h1>
-    </header>
-    <main>
-        <section>
-            <form id="searchForm">
-                <label for="location">Enter your location:</label>
-                <input type="text" id="location" required>
-                <button type="button" onclick="searchDogParks()">Search</button>
-            </form>
-            <div id="map"></div>
-        </section>
-    </main>
-    <footer></footer>
-</body>
+<html>
+    <head>
+        <title>loadmapasyncHTML</title>
+        <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?setmkt=en-us&key=AoIET44uo4OzRCxd-bqCey7QNLQzYLVdBx3sd5_44saPh2D7QbWSu55PUS5yxc8q'></script>
+        <script type='text/javascript'>
+                var map;
+                function loadMapScenario() {
+                    map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+                }
+                
+            
+        </script>
+    </head>
+    <body onload='initializeMap();'>
+        <div id='printoutPanel'>
+            <label for='locationInput'>Enter your location:</label>
+            <input type='text' id='locationInput' />
+            <button onclick='searchDogParks()'>Search Dog Parks</button>
+        </div>
+        <div id='myMap' style='width: 50vw; height: 50vh;'></div>
+        <script src="map.js"></script>
+    </body>
+    
 </html>

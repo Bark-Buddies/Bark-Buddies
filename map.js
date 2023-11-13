@@ -1,35 +1,40 @@
 var map;
 var searchManager;
 
-
 function initializeMap() {
-    map = new Microsoft.Maps.Map('#map', {
-        credentials: 'YAnpJZ-2lFGLVVyCyHWkIFWo1vrj_AkLEI3aonyWTcH-0RAk-I37Nr91X-6hIiuUr'
+    map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+        credentials: 'Your Bing Maps Key'
     });
 
     Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
         searchManager = new Microsoft.Maps.Search.SearchManager(map);
 
-        var searchForm = document.getElementById('searchForm');
-        searchForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            searchDogParks();
+        var searchButton = document.getElementById('searchButton');
+        searchButton.addEventListener('click', function () {
+            var searchQuery = document.getElementById('searchQuery').value;
+            searchDogParks(searchQuery);
         });
     });
 }
 
-function searchDogParks() {
-    var location = document.getElementById('location').value;
+function searchDogParks(query) {
+    // Ensure searchManager is defined
+    if (searchManager) {
+        var requestOptions = {
+            bounds: map.getBounds(),
+            where: query,
+            callback: function (results) {
+                displayDogParks(results);
+            }
+        };
 
-    var requestOptions = {
-        bounds: map.getBounds(),
-        where: location,
-        callback: function (results) {
-            displayDogParks(results);
-        }
-    };
-
-    searchManager.search(requestOptions);
+        searchManager.search(requestOptions);
+    } else {
+        // Retry search after a delay (e.g., 500ms)
+        setTimeout(function () {
+            searchDogParks(query);
+        }, 500);
+    }
 }
 
 function displayDogParks(results) {
