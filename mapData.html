@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Park Finder</title>
+    <!-- Include Bing Maps API script -->
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initializeMap&key=AnpJZ-2lFGLVVyCyHWkIFWo1vrj_AkLEI3aonyWTcH-0RAk-I37Nr91X-6hIiuUr" async defer></script>
+    <!-- Include your custom JavaScript file -->
+    <script src="map.js"></script>
+
+    <!-- Include your custom CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dog Park Finder</h1>
+    </header>
+    <main>
+        <section>
+            <form id="searchForm">
+                <label for="location">Enter your location:</label>
+                <input type="text" id="location" required>
+                <button type="button" onclick="searchDogParks()">Search</button>
+            </form>
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
