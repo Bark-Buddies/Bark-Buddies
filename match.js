@@ -21,7 +21,7 @@ function matchDogs(userDog, availableDogs) {
     return matchedDogs;
 }
 
-// Static Dogsgit add
+// Static Dogs
 const userDog = new Dog('UserDog', 'Friendly', 'High');
 const availableDogs = [
     new Dog('Dog1', 'Friendly', 'High'),
