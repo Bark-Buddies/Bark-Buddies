@@ -19,33 +19,33 @@
             <!-- First Row -->
             <div class="form-row1">
                 <label for="ownerName"></label>
-                <input type="text" id="field1" name="field1" placeholder="Owner Name">
+                <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
                 <label for="email">:</label>
-                <input type="text" id="field2" name="field2" placeholder="Email">
+                <input type="text" id="email" name="email" placeholder="Email">
                 <label for="city"></label>
-                <input type="text" id="field3" name="field3" placeholder="City">
+                <input type="text" id="city" name="city" placeholder="City">
                 <label for="state">State:</label>
                 <select id="state" name="state">
                     <option value="option1">WA</option>
                     <!-- <option value="option2">Option 2</option> -->
                     <!-- Add more options as needed -->
                 </select>
-                <label for="field4"></label>
-                <input type="text" id="field4" name="field4" placeholder="Zip Code">
+                <label for="zipCode"></label>
+                <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code">
             </div>
     
             <!-- Second Row -->
             <div class="form-row2">
-                <label for="field5"></label>
-                <input type="text" id="field5" name="field5" placeholder="Dog's Name">
-                <label for="dropdown2">1ST Breed:</label>
-                <select id="dropdown2" name="dropdown2">
+                <label for="dogName"></label>
+                <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
+                <label for="1stBreed">1ST Breed:</label>
+                <select id="1stBreed" name="1stBreed">
                     <option value="option1">Option 1</option>
                     <option value="option2">Option 2</option>
                     <!-- Add more options as needed -->
                 </select>
-                <label for="dropdown3">2ND Breed:</label>
-                <select id="dropdown3" name="dropdown3">
+                <label for="2ndBreed">2ND Breed:</label>
+                <select id="2ndBreed" name="2ndBreed">
                     <option value="option1">N/A</option>
                     <option value="option2">Option 2</option>
                     <!-- Add more options as needed -->
@@ -81,9 +81,9 @@
         </select>
     </div>
 <H5>Activity Level</H5>
-    <label for="activityLevel"><input type="checkbox" class="high"> High</label>
-    <label for="activityLevel"><input type="checkbox" class="medium"> Medium</label>
-    <label for="activityLevel"><input type="checkbox" class="low"> Low</label>
+    <label id="activityLevel"><input type="checkbox" class="activityLevel"> High</label>
+    <label id="activityLevel"><input type="checkbox" class="activityLevel"> Medium</label>
+    <label id="activityLevel"><input type="checkbox" class="activityLevel"> Low</label>
 </div>
 <!-- Fourth row -->
 <div class="form-row4">
@@ -92,8 +92,8 @@
 
 
 <H5>Spayed or Neutered</H5>
-    <label for="spayedNeutered"><input type="checkbox" class="yes"> Yes</label>
-    <label for="spayedNeutered"><input type="checkbox" class="no"> NO</label>
+    <label id="spayedNeutered"><input type="checkbox" class="spayedNeutered"> Yes</label>
+    <label id="spayedNeutered"><input type="checkbox" class="spayedNeutered"> NO</label>
     
     <label for="activity"></label>
     <input type="text" id="activity" name="activity" placeholder="My Favorite Activity">
@@ -101,24 +101,24 @@
     <!-- 5th row -->
 <div>
     <H5>vaccinations up to date?</H5>
-    <label for="vaccinations"><input type="checkbox" class="yes"> Yes</label>
-    <label for="vaccinations"><input type="checkbox" class="no"> NO</label>
+    <label id="vaccinations"><input type="checkbox" class="vaccinations"> Yes</label>
+    <label id="vaccinations"><input type="checkbox" class="vaccinations"> NO</label>
 
     <H5>Gets along with male/female Dogs?</H5>
-    <label for="maleDogs"><input type="checkbox" class="yes"> Yes - M</label>
-    <label for="maleDogs"><input type="checkbox" class="no"> NO - M</label>
-    <label for="femaleDogs"><input type="checkbox" class="yes"> Yes - F</label>
-    <label for="femaleDogs"><input type="checkbox" class="no"> NO - F</label>
+    <label id="maleDogs"><input type="checkbox" class="maleDogs"> Yes - M</label>
+    <label id="maleDogs"><input type="checkbox" class="maleDogs"> NO - M</label>
+    <label id="femaleDogs"><input type="checkbox" class="femaleDogs"> Yes - F</label>
+    <label id="femaleDogs"><input type="checkbox" class="femaleDogs"> NO - F</label>
 
     <H5>Gets along with male/female People?</H5>
-    <label for="malePeople"><input type="checkbox" class="yes"> Yes - M</label>
-    <label for="malePeople"><input type="checkbox" class="no"> NO - M</label>
-    <label for="femalePeople"><input type="checkbox" class="yes"> Yes - F</label>
-    <label for="femalePeople"><input type="checkbox" class="no"> NO - F</label>
+    <label id="malePeople"><input type="checkbox" class="malePeople"> Yes - M</label>
+    <label id="malePeople"><input type="checkbox" class="malePeople"> NO - M</label>
+    <label id="femalePeople"><input type="checkbox" class="femalePeople"> Yes - F</label>
+    <label id="femalePeople"><input type="checkbox" class="femalePeople"> NO - F</label>
 
     <H5>Service Dog?</H5>
-    <label for="serviceDog"><input type="checkbox" class="yes"> Yes - M</label>
-    <label for="serviceDog"><input type="checkbox" class="no"> NO - M</label>
+    <label id="serviceDog"><input type="checkbox" class="serviceDog"> Yes - M</label>
+    <label id="serviceDog"><input type="checkbox" class="serviceDog"> NO - M</label>
 </div>
             <!-- submit button -->
             <div class="form-row">
