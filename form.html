@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Form</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img class="logo" src="Img/barklogo1.png" alt="logo">
+            <a href="http://">Home</a>
+            <a href="http://">Form</a>
+        </nav>
+    </header>
+    <main>
+        <form>
+            <!-- First Row -->
+            <div class="form-row1">
+                <label for="ownerName"></label>
+                <input type="text" id="field1" name="field1" placeholder="Owner Name">
+                <label for="email">:</label>
+                <input type="text" id="field2" name="field2" placeholder="Email">
+                <label for="city"></label>
+                <input type="text" id="field3" name="field3" placeholder="City">
+                <label for="state">State:</label>
+                <select id="state" name="state">
+                    <option value="option1">WA</option>
+                    <!-- <option value="option2">Option 2</option> -->
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="field4"></label>
+                <input type="text" id="field4" name="field4" placeholder="Zip Code">
+            </div>
+    
+            <!-- Second Row -->
+            <div class="form-row2">
+                <label for="field5"></label>
+                <input type="text" id="field5" name="field5" placeholder="Dog's Name">
+                <label for="dropdown2">1ST Breed:</label>
+                <select id="dropdown2" name="dropdown2">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="dropdown3">2ND Breed:</label>
+                <select id="dropdown3" name="dropdown3">
+                    <option value="option1">N/A</option>
+                    <option value="option2">Option 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+    
+            <!-- Third Row -->
+<div class="form-row3">
+    <label for="field6"></label>
+    <input type="text" id="field6" name="field6" placeholder="Age of Dog">
+
+    <label for="Temperament">Temperament</label>
+    <select id="Temperament" name="Temperament">
+        <option value="energetic">energetic</option>
+            <option value="calm">calm</option>
+            <option value="protective">protective</option>
+            <option value="independent">independent</option>
+            <option value="shy">shy</option>
+            <option value="affectionate">affectionate</option>
+            <option value="dominant">dominant</option>
+            <option value="outgoing">outgoing</option>
+    </select>
+
+    <div>
+        <label for="size">Size:</label>
+        <select id="size" name="size">
+            <option value="giant (75 lbs +)">giant (75 lbs +)</option>
+            <option value="large (40-74 lbs)">large (40-74 lbs)</option>
+            <option value="medium (20-39 lbs)">medium (20-39 lbs)</option>
+            <option value="small (1-19 lbs)">small (1-19 lbs)</option>
+    
+            <!-- Remainder of selections -->
+        </select>
+    </div>
+<H5>Activity Level</H5>
+    <label for="activityLevel"><input type="checkbox" class="high"> High</label>
+    <label for="activityLevel"><input type="checkbox" class="medium"> Medium</label>
+    <label for="activityLevel"><input type="checkbox" class="low"> Low</label>
+</div>
+<!-- Fourth row -->
+<div class="form-row4">
+    <label for="accommodations"></label>
+    <input type="text" id="accommodations" name="accommodations" placeholder="Special accommodations">
+
+
+<H5>Spayed or Neutered</H5>
+    <label for="spayedNeutered"><input type="checkbox" class="yes"> Yes</label>
+    <label for="spayedNeutered"><input type="checkbox" class="no"> NO</label>
+    
+    <label for="activity"></label>
+    <input type="text" id="activity" name="activity" placeholder="My Favorite Activity">
+   </div>
+    <!-- 5th row -->
+<div>
+    <H5>vaccinations up to date?</H5>
+    <label for="vaccinations"><input type="checkbox" class="yes"> Yes</label>
+    <label for="vaccinations"><input type="checkbox" class="no"> NO</label>
+
+    <H5>Gets along with male/female Dogs?</H5>
+    <label for="maleDogs"><input type="checkbox" class="yes"> Yes - M</label>
+    <label for="maleDogs"><input type="checkbox" class="no"> NO - M</label>
+    <label for="femaleDogs"><input type="checkbox" class="yes"> Yes - F</label>
+    <label for="femaleDogs"><input type="checkbox" class="no"> NO - F</label>
+
+    <H5>Gets along with male/female People?</H5>
+    <label for="malePeople"><input type="checkbox" class="yes"> Yes - M</label>
+    <label for="malePeople"><input type="checkbox" class="no"> NO - M</label>
+    <label for="femalePeople"><input type="checkbox" class="yes"> Yes - F</label>
+    <label for="femalePeople"><input type="checkbox" class="no"> NO - F</label>
+
+    <H5>Service Dog?</H5>
+    <label for="serviceDog"><input type="checkbox" class="yes"> Yes - M</label>
+    <label for="serviceDog"><input type="checkbox" class="no"> NO - M</label>
+</div>
+            <!-- submit button -->
+            <div class="form-row">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>
