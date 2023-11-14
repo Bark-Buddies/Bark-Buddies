@@ -20,8 +20,8 @@
             <div class="form-row1">
                 <label for="ownerName"></label>
                 <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
-                <label for="email">:</label>
-                <input type="text" id="email" name="email" placeholder="Email">
+                <label for="ownerEmail">:</label>
+                <input type="text" id="ownerEmail" name="ownerEmail" placeholder="ownerEmail">
                 <label for="city"></label>
                 <input type="text" id="city" name="city" placeholder="City">
                 <label for="state">State:</label>
@@ -30,22 +30,22 @@
                     <!-- <option value="option2">Option 2</option> -->
                     <!-- Add more options as needed -->
                 </select>
-                <label for="zipCode"></label>
-                <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code">
+                <label for="zip"></label>
+                <input type="text" id="zip" name="zip" placeholder="Zip Code">
             </div>
     
             <!-- Second Row -->
             <div class="form-row2">
                 <label for="dogName"></label>
                 <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
-                <label for="1stBreed">1ST Breed:</label>
-                <select id="1stBreed" name="1stBreed">
+                <label for="breed1">1ST Breed:</label>
+                <select id="breed1" name="breed1">
                     <option value="option1">Option 1</option>
                     <option value="option2">Option 2</option>
                     <!-- Add more options as needed -->
                 </select>
-                <label for="2ndBreed">2ND Breed:</label>
-                <select id="2ndBreed" name="2ndBreed">
+                <label for="breed2">2ND Breed:</label>
+                <select id="breed2" name="breed2">
                     <option value="option1">N/A</option>
                     <option value="option2">Option 2</option>
                     <!-- Add more options as needed -->
@@ -54,11 +54,11 @@
     
             <!-- Third Row -->
 <div class="form-row3">
-    <label for="field6"></label>
-    <input type="text" id="field6" name="field6" placeholder="Age of Dog">
+    <label for="dogAge"></label>
+    <input type="text" id="dogAge" name="dogAge" placeholder="Age of Dog">
 
-    <label for="Temperament">Temperament</label>
-    <select id="Temperament" name="Temperament">
+    <label for="temperament">Temperament</label>
+    <select id="temperament" name="temperament">
         <option value="energetic">energetic</option>
             <option value="calm">calm</option>
             <option value="protective">protective</option>
@@ -70,8 +70,8 @@
     </select>
 
     <div>
-        <label for="size">Size:</label>
-        <select id="size" name="size">
+        <label for="dogSize">Dog Size:</label>
+        <select id="dogSize" name="dogSize">
             <option value="giant (75 lbs +)">giant (75 lbs +)</option>
             <option value="large (40-74 lbs)">large (40-74 lbs)</option>
             <option value="medium (20-39 lbs)">medium (20-39 lbs)</option>
@@ -81,44 +81,44 @@
         </select>
     </div>
 <H5>Activity Level</H5>
-    <label id="activityLevel"><input type="checkbox" class="activityLevel"> High</label>
-    <label id="activityLevel"><input type="checkbox" class="activityLevel"> Medium</label>
-    <label id="activityLevel"><input type="checkbox" class="activityLevel"> Low</label>
+    <label id="activityLevelHigh"><input type="checkbox" class="activityLevel"> High</label>
+    <label id="activityLevelMed"><input type="checkbox" class="activityLevel"> Medium</label>
+    <label id="activityLevelLow"><input type="checkbox" class="activityLevel"> Low</label>
 </div>
 <!-- Fourth row -->
 <div class="form-row4">
     <label for="accommodations"></label>
-    <input type="text" id="accommodations" name="accommodations" placeholder="Special accommodations">
+    <input type="text" id="special" name="accommodations" placeholder="Special accommodations">
 
 
 <H5>Spayed or Neutered</H5>
-    <label id="spayedNeutered"><input type="checkbox" class="spayedNeutered"> Yes</label>
-    <label id="spayedNeutered"><input type="checkbox" class="spayedNeutered"> NO</label>
+    <label id="fixedYes"><input type="checkbox" class="spayedNeutered"> Yes</label>
+    <label id="fixedNo"><input type="checkbox" class="spayedNeutered"> NO</label>
     
     <label for="activity"></label>
     <input type="text" id="activity" name="activity" placeholder="My Favorite Activity">
    </div>
     <!-- 5th row -->
-<div>
+<div class="form-row5">
     <H5>vaccinations up to date?</H5>
-    <label id="vaccinations"><input type="checkbox" class="vaccinations"> Yes</label>
-    <label id="vaccinations"><input type="checkbox" class="vaccinations"> NO</label>
+    <label id="vaxYes"><input type="checkbox" class="vaccinations"> Yes</label>
+    <label id="vaxNo"><input type="checkbox" class="vaccinations"> NO</label>
 
     <H5>Gets along with male/female Dogs?</H5>
-    <label id="maleDogs"><input type="checkbox" class="maleDogs"> Yes - M</label>
-    <label id="maleDogs"><input type="checkbox" class="maleDogs"> NO - M</label>
-    <label id="femaleDogs"><input type="checkbox" class="femaleDogs"> Yes - F</label>
-    <label id="femaleDogs"><input type="checkbox" class="femaleDogs"> NO - F</label>
+    <label id="maleDogsYes"><input type="checkbox" class="maleDogs"> Yes - M</label>
+    <label id="maleDogsNo"><input type="checkbox" class="maleDogs"> NO - M</label>
+    <label id="femDogsYes"><input type="checkbox" class="femaleDogs"> Yes - F</label>
+    <label id="femDogsNo"><input type="checkbox" class="femaleDogs"> NO - F</label>
 
     <H5>Gets along with male/female People?</H5>
-    <label id="malePeople"><input type="checkbox" class="malePeople"> Yes - M</label>
-    <label id="malePeople"><input type="checkbox" class="malePeople"> NO - M</label>
-    <label id="femalePeople"><input type="checkbox" class="femalePeople"> Yes - F</label>
-    <label id="femalePeople"><input type="checkbox" class="femalePeople"> NO - F</label>
+    <label id="maleHumansYes"><input type="checkbox" class="malePeople"> Yes - M</label>
+    <label id="maleHumansNo"><input type="checkbox" class="malePeople"> NO - M</label>
+    <label id="femHumansYes"><input type="checkbox" class="femalePeople"> Yes - F</label>
+    <label id="femHumansNo"><input type="checkbox" class="femalePeople"> NO - F</label>
 
     <H5>Service Dog?</H5>
-    <label id="serviceDog"><input type="checkbox" class="serviceDog"> Yes - M</label>
-    <label id="serviceDog"><input type="checkbox" class="serviceDog"> NO - M</label>
+    <label id="serviceYes"><input type="checkbox" class="serviceDog"> Yes - M</label>
+    <label id="serviceNo"><input type="checkbox" class="serviceDog"> NO - M</label>
 </div>
             <!-- submit button -->
             <div class="form-row">
