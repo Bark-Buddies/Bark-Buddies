@@ -49,7 +49,7 @@ class UserDog {
     this.zip = zip;
   }
 }
-// export default = UserDog;
+export default UserDog;
 
 // Function to match dogs based on temperament and activity level
 class AvailableDogs {
