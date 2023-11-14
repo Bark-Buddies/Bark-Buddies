@@ -4,9 +4,9 @@ html, body {
     background-color: rgb(208,208,208);
     height: 100%;
     margin: 0;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
+    /*justify-content: space-between; */
     /*don't know if need two lines above */
 }
 
@@ -26,6 +26,11 @@ header img {
     width: auto;
     max-height: 170px;
     padding-right: 10px;
+}
+
+h1 {
+    padding-top: 20px;
+    font-size: 80px;
 }
 
 /* See if we want to keep this in here, deleting this makes it look more like what we have on invision */
