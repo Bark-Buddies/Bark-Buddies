@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
             serviceNo: document.getElementById('serviceNo').querySelector('input').checked
         };
 
-        // Log the collected data (you can replace this with your own logic)
+        // Log the collected data 
         console.log("Form Data:", formData);
 
         
