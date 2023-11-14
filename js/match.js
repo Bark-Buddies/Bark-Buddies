@@ -74,6 +74,7 @@ class AvailableDogs {
     city = 'seattle',
     state = 'wa',
     zip = 98101,
+    ageDiff = 0,
     matchScore = 0
   ) {
     this.dogName = dogName;
@@ -97,6 +98,7 @@ class AvailableDogs {
     this.city = city;
     this.state = state;
     this.zip = zip;
+    this.ageDiff = ageDiff;
     this.matchScore = matchScore;
   }
 
@@ -109,9 +111,10 @@ class AvailableDogs {
     if (this.activityLevel === userDog.activityLevel) {
       this.matchScore += 2;
     }
-    if (difference(this.dogAge, userDog.dogAge) <= 2) {
+    const ageDiff = difference(this.dogAge, userDog.dogAge);
+    this.ageDiff = ageDiff;
+    if (ageDiff <= 2) {
       this.matchScore += 1;
-      console.log(difference(this.dogAge, userDog.dogAge));
     }
     if (this.dogSize === userDog.dogSize) {
       this.matchScore += 1;
