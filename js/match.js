@@ -49,6 +49,7 @@ class UserDog {
     this.zip = zip;
   }
 }
+// export default = UserDog;
 
 // Function to match dogs based on temperament and activity level
 class AvailableDogs {
@@ -102,6 +103,8 @@ class AvailableDogs {
     this.matchScore = matchScore;
   }
 
+
+
   // Match Score Calculation
 
   calcMatchScore(userDog) {
@@ -118,7 +121,7 @@ class AvailableDogs {
         this.matchScore += 2;
       }
       if (this.dogSize === userDog.dogSize) {
-        this.matchScore += 1;
+        this.matchScore += 3;
       }
       if (this.fixed === userDog.fixed) {
         this.matchScore += 1;

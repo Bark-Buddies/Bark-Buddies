@@ -1,7 +1,8 @@
 {
-  "name": "demo-repo",
+  // "type": "module",
+  "name": "Bark Buddies",
   "version": "0.2.0",
-  "description": "A sample package.json",
+  "description": "Project package.json",
   "dependencies": {
     "@primer/css": "17.0.1"
   },
