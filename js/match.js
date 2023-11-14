@@ -1,13 +1,54 @@
 // Dog class to represent a dog with temperament and activity level
 let availableDogs = [];
 
-// class Dog {
-//   constructor(name, temperament, activityLevel) {
-//     this.name = name;
-//     this.temperament = temperament;
-//     this.activityLevel = activityLevel;
-//   }
-// }
+// TBD: create separate constructor for userDog form? it should use most of same parameters, excluding the matchScore
+class UserDog {
+  constructor(
+    dogName,
+    temperament,
+    activityLevel,
+    favActivity,
+    dogSize,
+    dogAge,
+    breed1,
+    ownerName,
+    ownerEmail,
+    fixed,
+    femDogs,
+    maleDogs,
+    femHumans,
+    maleHumans,
+    vax,
+    special,
+    service,
+    breed2,
+    city,
+    state,
+    zip
+  ) {
+    this.dogName = dogName;
+    this.temperament = temperament;
+    this.activityLevel = activityLevel;
+    this.ownerName = ownerName;
+    this.ownerEmail = ownerEmail;
+    this.breed1 = breed1;
+    this.breed2 = breed2;
+    this.dogAge = dogAge;
+    this.dogSize = dogSize;
+    this.special = special;
+    this.fixed = fixed;
+    this.favActivity = favActivity;
+    this.vax = vax;
+    this.service = service;
+    this.femDogs = femDogs;
+    this.maleDogs = maleDogs;
+    this.femHumans = femHumans;
+    this.maleHumans = maleHumans;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+  }
+}
 
 // Function to match dogs based on temperament and activity level
 class AvailableDogs {
@@ -68,8 +109,9 @@ class AvailableDogs {
     if (this.activityLevel === userDog.activityLevel) {
       this.matchScore += 2;
     }
-    if (difference(this.dogAge, userDog.dogAge) <=2) {
+    if (difference(this.dogAge, userDog.dogAge) <= 2) {
       this.matchScore += 1;
+      console.log(difference(this.dogAge, userDog.dogAge));
     }
     if (this.dogSize === userDog.dogSize) {
       this.matchScore += 1;
@@ -77,20 +119,9 @@ class AvailableDogs {
     if (this.fixed === userDog.fixed) {
       this.matchScore += 1;
     }
-    console.log(difference(this.dogAge, userDog.dogAge)); 
     return this.matchScore;
   }
 }
-
-// availableDogs.sort((a, b) => b.matchScore - a.matchScore);
-/*
-function difference(a, b) {
-  return Math.abs(a - b);
-}
-
-console.log(difference(3, 5));
-// Expected output: 2
-*/
 
 ////////////////////////////////
 //// CREATE DOG DATA //////////
@@ -270,17 +301,32 @@ function initDogs() {
   let shuffledDogAges = shuffleArray(dogAges);
   let shuffledBreeds = shuffleArray(dogBreeds);
   let shuffledHumans = shuffleArray(humanNames);
-  for (let i = 0; i < shuffledDogNames.length; i++) {
+
+  // Calculate the maximum length of arrays
+  const maxLength = Math.max(
+    shuffledDogNames.length,
+    shuffledDogTemps.length,
+    shuffledActivityLevels.length,
+    shuffledFavActivities.length,
+    shuffledDogSizes.length,
+    shuffledDogAges.length,
+    shuffledBreeds.length,
+    shuffledHumans.length
+  );
+
+/* modulo operator (%) is used to cycle through the arrays. This way, even if one array runs out of elements, it will start again from the beginning of that array */
+
+  for (let i = 0; i < maxLength; i++) {
     const dogInstance = new AvailableDogs(
-      shuffledDogNames[i],
-      shuffledDogTemps[i],
-      shuffledActivityLevels[i],
-      shuffledFavActivities[i],
-      shuffledDogSizes[i],
-      shuffledDogAges[i],
-      shuffledBreeds[i],
-      shuffledHumans[i],
-      `${shuffledHumans[i]}@gmail.com`
+      shuffledDogNames[i % shuffledDogNames.length],
+      shuffledDogTemps[i % shuffledDogTemps.length],
+      shuffledActivityLevels[i % shuffledActivityLevels.length],
+      shuffledFavActivities[i % shuffledFavActivities.length],
+      shuffledDogSizes[i % shuffledDogSizes.length],
+      shuffledDogAges[i % shuffledDogAges.length],
+      shuffledBreeds[i % shuffledBreeds.length],
+      shuffledHumans[i % shuffledHumans.length],
+      `${shuffledHumans[i % shuffledHumans.length]}@gmail.com`
     );
     availableDogs.push(dogInstance);
   }
@@ -307,15 +353,14 @@ function difference(a, b) {
 
 //////// USER INPUT COLLECTED FROM FORM ////////////
 
-
 // STATIC user dog - to be updated with object from Form
-const userDog = new AvailableDogs(
+const userDog = new UserDog(
   'UserDog',
   'friendly',
   'high',
   'fetch',
   'medium',
-  3,
+  7,
   'Australian Shepherd',
   true
 );
@@ -338,20 +383,8 @@ function renderMatches() {
   const topDogs = availableDogs.slice(0, 2);
 
   console.log('Top Dogs with the highest matchScore:');
-  console.log(topDogs);
+  console.log(availableDogs);
 
   return topDogs;
 }
 renderMatches();
-
-// Old code
-// // Iterate over the availableDogs array
-// for (const dog of availableDogs) {
-//   // Check if the current dog has a higher matchScore
-//   if (dog.matchScore > highScore) {
-//     highScore = dog.matchScore;
-//   }
-// }
-
-// Filter dogs with the highest matchScore
-// const topDogs = availableDogs.filter((dog) => dog.matchScore === highScore);
