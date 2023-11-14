@@ -8,25 +8,31 @@ html, body {
     justify-content: space-between;
 }
 
-header {
+header, footer {
     background-color: rgb(114, 189, 250);
     color: black;
-    padding: 10px 0;
     text-align: center;
-    height: 150px;
+    justify-content: center;
+    height: 100px;
+}
+
+nav img {
+    justify-content: left;
 }
 
 /* nav {
-    background-color: rgb(114, 189, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 } */
 
 nav a {
     color: black;
-    margin: 0 10px;
+    margin: 10px;
     text-decoration: none;
     font-size: 20px;
 }
-
 
 main {
     width: 1200px;
@@ -35,19 +41,17 @@ main {
     margin: auto;
 }
 
-p 
-
 .slideshow-container {
-    width: 100%;
+    width: 60%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.mySlides {
+/* .mySlides {
     width: 100%;
     height: auto;
     object-fit: cover;
     flex-shrink: 0;
-}
+} */
