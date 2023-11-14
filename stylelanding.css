@@ -8,42 +8,20 @@ html, body {
     justify-content: space-between;
 }
 
-header, footer {
-    background-color: rgb(114, 189, 250);
-    color: black;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 nav img {
-    height: 80px;
+    height: auto;
     width: auto;
+    max-height: 80px;
+    padding-right: 10px;
 }
 
-/* Spacing for the nav bar */
-nav a {
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
-   padding: 10px 15px;
-}
-
-main {
+/* See if we want to keep this in here, deleting this makes it look more like what we have on invision */
+/* main {
     width: 1200px;
     align-items: center;
     justify-content: center;
     margin: auto;
-}
+} */
 
 .slideshow-container {
     width: 60%;
@@ -53,20 +31,9 @@ main {
     justify-content: center;
 }
 
-header, footer {
-    background-color: rgb(118, 185, 240);
-    height: 75px;
-}
-
 nav {
     text-align: center;
     justify-content: space-evenly;
-}
-
-nav a {
-    font-size: 25px;
-    color: black;
-    text-decoration: none;
 }
 
 main {
@@ -91,8 +58,32 @@ p {
     font-size: 25px;
 }
 
+header, footer {
+    background-color: rgb(114, 189, 250); 
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* spreads out the nav items */
+    align-items: center;
+    height: 100px; /* Height of the header */
+    padding: 0 10px; /* Padding to the header*/
+}
+
+nav a {
+    font-size: 25px; /* Adjusts font size in nav bar */
+    color: black;
+    text-decoration: none;
+    margin: 0 10px; /* Margin to space out nav items */
+}
+
+.slideshow-container, .callToAction, p {
+    margin: 30px;
+    text-align: center;
+}
+
 footer {
     display: flex;
-    justify-content: left;
+    justify-content: center; /* Centers footer content */
     align-items: center;
+    height: 75px; /* Adjusts height */
 }
