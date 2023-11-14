@@ -12,24 +12,28 @@ header, footer {
     background-color: rgb(114, 189, 250);
     color: black;
     text-align: center;
-    justify-content: center;
-    height: 100px;
-}
-
-nav img {
-    justify-content: left;
-}
-
-/* nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-} */
+    height: 100px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+nav img {
+    height: 80px;
+    width: auto;
+}
 
 nav a {
     color: black;
-    margin: 10px;
+    /* adjusts spacing */
+    margin:  0 10px;
     text-decoration: none;
     font-size: 20px;
 }
