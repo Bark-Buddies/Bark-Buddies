@@ -141,11 +141,13 @@
                         <!-- Remainder of selections -->
                     </select>
                 </div>
-                <H5>Activity Level</H5>
-                <label id="activityLevelHigh"><input type="checkbox" class="activityLevel"> High</label>
-                <label id="activityLevelMed"><input type="checkbox" class="activityLevel"> Medium</label>
-                <label id="activityLevelLow"><input type="checkbox" class="activityLevel"> Low</label>
-            </div>
+           
+                <label for="activityLevel">Activity Level:</label>
+                    <select id="activityLevel" name="activityLevel">
+                        <option value="low">Low</option>
+                        <option value="Med">Medium</option>
+                        <option value="High">High</option>
+                </div>
             <!-- Fourth row -->
             <div class="form-row4">
                 <label for="accommodations"></label>
@@ -153,33 +155,36 @@
 
 
                 <H5>Spayed or Neutered</H5>
-                <label id="fixedYes"><input type="checkbox" class="spayedNeutered"> Yes</label>
-                <label id="fixedNo"><input type="checkbox" class="spayedNeutered"> NO</label>
+                <label id="fixed"><input type="checkbox" class="fixed">Check for Yes</label>
+                
 
-                <label for="activity"></label>
-                <input type="text" id="activity" name="activity" placeholder="My Favorite Activity">
+                <label for="favActivity"></label>
+                <input type="text" id="favActivity" name="favActivity" placeholder="My Favorite Activity">
             </div>
             <!-- 5th row -->
             <div class="form-row5">
                 <H5>vaccinations up to date?</H5>
-                <label id="vaxYes"><input type="checkbox" class="vaccinations"> Yes</label>
-                <label id="vaxNo"><input type="checkbox" class="vaccinations"> NO</label>
+                <label id="vax"><input type="checkbox" class="vaccinations">Check for Yes</label>
+                
 
-                <H5>Gets along with male/female Dogs?</H5>
-                <label id="maleDogsYes"><input type="checkbox" class="maleDogs"> Yes - M</label>
-                <label id="maleDogsNo"><input type="checkbox" class="maleDogs"> NO - M</label>
-                <label id="femDogsYes"><input type="checkbox" class="femaleDogs"> Yes - F</label>
-                <label id="femDogsNo"><input type="checkbox" class="femaleDogs"> NO - F</label>
+                <H5>Gets along with male Dogs?</H5>
+                <label id="maleDogs"><input type="checkbox" class="maleDogs">Check for Yes</label>
+                
+                <H5>Gets along with female Dogs?</H5>
+                <label id="femDogs"><input type="checkbox" class="femaleDogs">Check for Yes</label>
+                
+                
 
-                <H5>Gets along with male/female People?</H5>
-                <label id="maleHumansYes"><input type="checkbox" class="malePeople"> Yes - M</label>
-                <label id="maleHumansNo"><input type="checkbox" class="malePeople"> NO - M</label>
-                <label id="femHumansYes"><input type="checkbox" class="femalePeople"> Yes - F</label>
-                <label id="femHumansNo"><input type="checkbox" class="femalePeople"> NO - F</label>
+                <H5>Gets along with male People?</H5>
+                <label id="maleHumans"><input type="checkbox" class="malePeople">Check for Yes</label>
+                
+                <H5>Gets along with female People?</H5>
+                <label id="femHumans"><input type="checkbox" class="femalePeople">Check for Yes</label>
+                
 
                 <H5>Service Dog?</H5>
-                <label id="serviceYes"><input type="checkbox" class="serviceDog"> Yes - M</label>
-                <label id="serviceNo"><input type="checkbox" class="serviceDog"> NO - M</label>
+                <label id="service"><input type="checkbox" class="serviceDog">Check for Yes</label>
+                
             </div>
             <!-- submit button -->
             <div class="form-row">
