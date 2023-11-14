@@ -13,15 +13,17 @@
                 
             
         </script>
+        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=initializeMap' async defer></script>
     </head>
     <body onload='initializeMap();'>
         <div id='printoutPanel'>
             <label for='locationInput'>Enter your location:</label>
             <input type='text' id='locationInput' />
-            <button onclick='searchDogParks()'>Search Dog Parks</button>
+            <input type="text" id="searchQuery" placeholder="Enter your query">
+            <button id="searchButton" onclick='searchDogParks()'>Search Dog Parks</button>
         </div>
         <div id='myMap' style='width: 50vw; height: 50vh;'></div>
-        <script src="map.js"></script>
+        <script src="map.js" async defer></script>
     </body>
     
 </html>

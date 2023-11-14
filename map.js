@@ -1,9 +1,10 @@
 var map;
 var searchManager;
+let searchQuery;
 
 function initializeMap() {
     map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-        credentials: 'Your Bing Maps Key'
+        credentials: 'AoIET44uo4OzRCxd-bqCey7QNLQzYLVdBx3sd5_44saPh2D7QbWSu55PUS5yxc8q'
     });
 
     Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
@@ -11,8 +12,8 @@ function initializeMap() {
 
         var searchButton = document.getElementById('searchButton');
         searchButton.addEventListener('click', function () {
-            var searchQuery = document.getElementById('searchQuery').value;
-            searchDogParks(searchQuery);
+            searchQuery = document.getElementById('searchQuery').value;
+            searchDogParks();
         });
     });
 }
