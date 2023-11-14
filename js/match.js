@@ -22,9 +22,9 @@ class UserDog {
     special,
     service,
     breed2,
-    city,
-    state,
-    zip
+    city = 'seattle', // default values for testing - can be removed
+    state = 'wa', // default values for testing - can be removed
+    zip = 98101 // default values for testing - can be removed
   ) {
     this.dogName = dogName;
     this.temperament = temperament;
@@ -62,12 +62,12 @@ class AvailableDogs {
     breed1,
     ownerName,
     ownerEmail,
-    fixed = true,
-    femDogs = true,
-    maleDogs = true,
-    femHumans = true,
-    maleHumans = true,
-    vax = true,
+    fixed,
+    femDogs,
+    maleDogs,
+    femHumans,
+    maleHumans,
+    vax,
     special = false,
     service = false,
     breed2 = null,
@@ -105,24 +105,34 @@ class AvailableDogs {
   // Match Score Calculation
 
   calcMatchScore(userDog) {
-    if (this.temperament === userDog.temperament) {
-      this.matchScore += 3;
+    if (this.city === userDog.city || this.zip === userDog.zip) {
+      if (this.temperament === userDog.temperament) {
+        this.matchScore += 5;
+      }
+      if (this.activityLevel === userDog.activityLevel) {
+        this.matchScore += 4;
+      }
+      const ageDiff = difference(this.dogAge, userDog.dogAge);
+      this.ageDiff = ageDiff;
+      if (ageDiff <= 3) {
+        this.matchScore += 2;
+      }
+      if (this.dogSize === userDog.dogSize) {
+        this.matchScore += 1;
+      }
+      if (this.fixed === userDog.fixed) {
+        this.matchScore += 1;
+      }
+      if (this.femDogs === userDog.femDogs || this.maleDogs === userDog.maleDogs) {
+        this.matchScore += 2;
+      }
+      if (this.femHumans === userDog.femHumans || this.maleHumans === userDog.maleHumans) {
+        this.matchScore += 2;
+      }
+      return this.matchScore;
+    } else {
+      console.log('no match available in your area')
     }
-    if (this.activityLevel === userDog.activityLevel) {
-      this.matchScore += 2;
-    }
-    const ageDiff = difference(this.dogAge, userDog.dogAge);
-    this.ageDiff = ageDiff;
-    if (ageDiff <= 2) {
-      this.matchScore += 1;
-    }
-    if (this.dogSize === userDog.dogSize) {
-      this.matchScore += 1;
-    }
-    if (this.fixed === userDog.fixed) {
-      this.matchScore += 1;
-    }
-    return this.matchScore;
   }
 }
 
@@ -295,6 +305,9 @@ const humanNames = [
   'Lily',
 ];
 
+const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
+
+
 function initDogs() {
   let shuffledDogNames = shuffleArray(dogNames);
   let shuffledDogTemps = shuffleArray(dogTemps);
@@ -304,6 +317,12 @@ function initDogs() {
   let shuffledDogAges = shuffleArray(dogAges);
   let shuffledBreeds = shuffleArray(dogBreeds);
   let shuffledHumans = shuffleArray(humanNames);
+  let randomFixed = randomBoolean();
+  let randomFemDogs = randomBoolean();
+  let randomMaleDogs = randomBoolean();
+  let randomFemHumans = randomBoolean();
+  let randomMaleHumans = randomBoolean();
+  let randomVax = randomBoolean();
 
   // Calculate the maximum length of arrays
   const maxLength = Math.max(
@@ -329,7 +348,13 @@ function initDogs() {
       shuffledDogAges[i % shuffledDogAges.length],
       shuffledBreeds[i % shuffledBreeds.length],
       shuffledHumans[i % shuffledHumans.length],
-      `${shuffledHumans[i % shuffledHumans.length]}@gmail.com`
+      `${shuffledHumans[i % shuffledHumans.length]}@gmail.com`,
+      randomFixed, // fixed 
+      randomFemDogs, // femDogs
+      randomMaleDogs, // maleDogs
+      randomFemHumans, // femHumans
+      randomMaleHumans, // maleHumans
+      randomVax // vax
     );
     availableDogs.push(dogInstance);
   }
