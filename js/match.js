@@ -305,12 +305,12 @@ class AvailableDogs {
           this.matchScore += 2;
         }
         if (this.matchScore > 15) {
-          console.log('Match Made In Heaven:', this.matchScore);
          
-          // Push the dogs with a match score over 8 to a specific array
+         
+          // Push the dogs with a match score over 15 to a specific array
           matchedDogsArray.push({
             dog1: this,
-            dog2: userDog,
+            
             matchScore: this.matchScore,
           });
         }
@@ -455,13 +455,13 @@ form.addEventListener('submit', function (event) {
 
 function renderMatches() {
   // Sort the availableDogs array by matchScore in descending order
-  availableDogs.sort((a, b) => b.matchScore - a.matchScore);
+  matchedDogsArray.sort((a, b) => b.matchScore - a.matchScore);
 
   // Take the top 2 dogs
-  const topDogs = availableDogs.slice(0, 2);
+  const topDogs = matchedDogsArray.slice(0, 2);
 
-  console.log('Top Dogs with the highest matchScore:');
-  console.log(availableDogs);
+  console.log('Top Dogs with the highest matchScore:', topDogs);
+  // console.log(availableDogs);
 
     // Log matchedDogsArray
   return topDogs;
@@ -483,7 +483,7 @@ function parseStoredUsers(storageText) {
   // restore from storage
   const storedUserObjects = JSON.parse(storageText);
 
-  availableDogs.length = 0;
+  matchedDogsArray.length = 0;
 
   for (let userObject of storedUserObjects) {
     const currentUser = new UserDog(
@@ -491,7 +491,7 @@ function parseStoredUsers(storageText) {
       userObject.ownerEmail,
       userObject.city
     );
-    availableDogs.push(currentUser);
+    matchedDogsArray.push(currentUser);
   }
   console.log(availableDogs);
 }
