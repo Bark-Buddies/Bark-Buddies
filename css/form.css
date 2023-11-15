@@ -20,6 +20,15 @@ header, footer {
     padding: 0 10px; /* Padding to the header*/
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    width: 40%;
+    margin: auto;
+}
+
 header {
     display: flex;
     align-items: center;
