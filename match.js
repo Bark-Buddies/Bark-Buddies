@@ -305,12 +305,14 @@ class AvailableDogs {
           this.matchScore += 2;
         }
         if (this.matchScore > 15) {
-          console.log('Match Made In Heaven:', this.matchScore);
+
          
-          // Push the dogs with a match score over 8 to a specific array
+         
+          // Push the dogs with a match score over 15 to a specific array
           matchedDogsArray.push({
             dog1: this,
-            dog2: userDog,
+            
+
             matchScore: this.matchScore,
           });
         }
@@ -339,7 +341,9 @@ function difference(a, b) {
   return Math.abs(a - b);
 }
 
+
 const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
+
 
 
 // EXISTING DOG DATA CREATION //////
@@ -455,6 +459,7 @@ form.addEventListener('submit', function (event) {
 
 function renderMatches() {
   // Sort the availableDogs array by matchScore in descending order
+
   availableDogs.sort((a, b) => b.matchScore - a.matchScore);
 
   // Take the top 2 dogs
@@ -462,6 +467,7 @@ function renderMatches() {
 
   console.log('Top Dogs with the highest matchScore:');
   console.log(availableDogs);
+
 
     // Log matchedDogsArray
   return topDogs;
