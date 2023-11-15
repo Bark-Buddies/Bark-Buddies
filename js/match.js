@@ -1,55 +1,159 @@
 // Dog class to represent a dog with temperament and activity level
 let availableDogs = [];
+let newUserDogs = []; // Array to store UserDog instances
 
-// TBD: create separate constructor for userDog form? it should use most of same parameters, excluding the matchScore
+// import formData from './form.js';
+// const formData = require("./form.js");
+// console.log(formData);
+
+let form = document.querySelector('form');
+let formData = {};
+
+form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Collect data from the form
+        formData = {
+            ownerName: document.getElementById('ownerName').value,
+            ownerEmail: document.getElementById('ownerEmail').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            zip: document.getElementById('zip').value,
+            dogName: document.getElementById('dogName').value,
+            breed1: document.getElementById('breed1').value,
+            breed2: document.getElementById('breed2').value,
+            dogAge: document.getElementById('dogAge').value,
+            temperament: document.getElementById('temperament').value,
+            dogSize: document.getElementById('dogSize').value,
+            activityLevel: document.getElementById('activityLevel').value,
+            special: document.getElementById('special').value,
+            fixed: document.getElementById('fixed').querySelector('input').checked,
+            favActivity: document.getElementById('favActivity').value,
+            vax: document.getElementById('vax').querySelector('input').checked,
+            maleDogs: document.getElementById('maleDogs').querySelector('input').checked,
+            femDogs: document.getElementById('femDogs').querySelector('input').checked,
+            maleHumans: document.getElementById('maleHumans').querySelector('input').checked,
+            femHumans: document.getElementById('femHumans').querySelector('input').checked,
+            service: document.getElementById('service').querySelector('input').checked,
+
+        };
+        console.log("Form Data:", formData);
+        const newDog = new UserDog(formData);
+        newUserDogs.push(newDog);
+    });
+
 class UserDog {
-  constructor(
-    dogName,
-    temperament,
-    activityLevel,
-    favActivity,
-    dogSize,
-    dogAge,
-    breed1,
+  constructor({
     ownerName,
     ownerEmail,
-    fixed,
-    femDogs,
-    maleDogs,
-    femHumans,
-    maleHumans,
-    vax,
-    special,
-    service,
+    city,
+    state,
+    zip,
+    dogName,
+    breed1,
     breed2,
-    city = 'seattle', // default values for testing - can be removed
-    state = 'wa', // default values for testing - can be removed
-    zip = 98101 // default values for testing - can be removed
-  ) {
-    this.dogName = dogName;
-    this.temperament = temperament;
-    this.activityLevel = activityLevel;
+    dogAge,
+    temperament,
+    dogSize,
+    activityLevel,
+    special,
+    fixed,
+    favActivity,
+    vax,
+    maleDogs,
+    femDogs,
+    maleHumans,
+    femHumans,
+    service
+  }) {
     this.ownerName = ownerName;
     this.ownerEmail = ownerEmail;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.dogName = dogName;
     this.breed1 = breed1;
     this.breed2 = breed2;
     this.dogAge = dogAge;
+    this.temperament = temperament;
     this.dogSize = dogSize;
+    this.activityLevel = activityLevel;
     this.special = special;
     this.fixed = fixed;
     this.favActivity = favActivity;
     this.vax = vax;
-    this.service = service;
-    this.femDogs = femDogs;
     this.maleDogs = maleDogs;
-    this.femHumans = femHumans;
+    this.femDogs = femDogs;
     this.maleHumans = maleHumans;
-    this.city = city;
-    this.state = state;
-    this.zip = zip;
+    this.femHumans = femHumans;
+    this.service = service;
   }
 }
-export default UserDog;
+
+
+// let newUserDog = new UserDog(formData);
+// console.log(formData);
+// console.log(newUserDog)
+
+// Now you can use the userDog instance as needed
+// console.log(userDog);
+
+
+
+
+// class UserDog {
+//   constructor(formData) {
+//     this.ownerName = formData.ownerName;
+//     this.ownerEmail = formData.ownerEmail;
+//     this.city = formData.city
+//     this.dogName = formData.dogName;
+//   }
+// }
+  //   dogName,
+  //   temperament,
+  //   activityLevel,
+  //   favActivity,
+  //   dogSize,
+  //   dogAge,
+  //   breed1,
+  //   ownerName,
+  //   ownerEmail,
+  //   fixed,
+  //   femDogs,
+  //   maleDogs,
+  //   femHumans,
+  //   maleHumans,
+  //   vax,
+  //   special,
+  //   service,
+  //   breed2,
+  //   city = 'seattle', // default values for testing - can be removed
+  //   state = 'wa', // default values for testing - can be removed
+  //   zip = 98101 // default values for testing - can be removed
+  // ) {
+  //   this.dogName = dogName;
+  //   this.temperament = temperament;
+  //   this.activityLevel = activityLevel;
+  //   this.ownerName = ownerName;
+  //   this.ownerEmail = ownerEmail;
+  //   this.breed1 = breed1;
+  //   this.breed2 = breed2;
+  //   this.dogAge = dogAge;
+  //   this.dogSize = dogSize;
+  //   this.special = special;
+  //   this.fixed = fixed;
+  //   this.favActivity = favActivity;
+  //   this.vax = vax;
+  //   this.service = service;
+  //   this.femDogs = femDogs;
+  //   this.maleDogs = maleDogs;
+  //   this.femHumans = femHumans;
+  //   this.maleHumans = maleHumans;
+  //   this.city = city;
+  //   this.state = state;
+  //   this.zip = zip;
+
+// export default UserDog;
 
 // Function to match dogs based on temperament and activity level
 class AvailableDogs {

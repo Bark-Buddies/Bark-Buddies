@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     let form = document.querySelector('form');
+    let formData = {};
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
         // Collect data from the form
-        let formData = {
+        formData = {
             ownerName: document.getElementById('ownerName').value,
             ownerEmail: document.getElementById('ownerEmail').value,
             city: document.getElementById('city').value,
@@ -29,10 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
             service: document.getElementById('service').querySelector('input').checked,
 
         };
-
-        // Log the collected data 
+      
         console.log("Form Data:", formData);
-
-
     });
 });
+//  // Log the collected data 
+//  console.log("Form Outside Function:", formData);
+
+//  export default formData;
