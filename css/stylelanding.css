@@ -29,7 +29,7 @@ header img {
 }
 
 h1 {
-    padding-top: 20px;
+    padding-top: px;
     font-size: 80px;
 }
 
@@ -74,13 +74,6 @@ p {
     margin: 50px;
     transition: font-size .350s ease;
     font-size: 25px;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Adjusts height */
 }
 
 header, footer {
