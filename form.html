@@ -28,9 +28,7 @@
                 <input type="text" id="city" name="city" placeholder="City">
                 <label for="state">State:</label>
                 <select id="state" name="state">
-                    <option value="option1">WA</option>
-                    <!-- <option value="option2">Option 2</option> -->
-                    <!-- Add more options as needed -->
+                    <option value="WA">WA</option>
                 </select>
                 <label for="zip"></label>
                 <input type="text" id="zip" name="zip" placeholder="Zip Code">
@@ -109,6 +107,7 @@
                     <option value="Shih Tzu">Italian Greyhound</option>
                     <option value="Greyhound">Chow Chow</option>
                     <option value="Basenji">Norwegian Elkhound</option>
+                    <option value="other">Other</option>
                     <!-- Add more options as needed -->
                 </select>
             </div>
@@ -130,24 +129,24 @@
                     <option value="outgoing">outgoing</option>
                 </select>
 
-                <div>
-                    <label for="dogSize">Dog Size:</label>
-                    <select id="dogSize" name="dogSize">
-                        <option value="giant (75 lbs +)">giant (75 lbs +)</option>
-                        <option value="large (40-74 lbs)">large (40-74 lbs)</option>
-                        <option value="medium (20-39 lbs)">medium (20-39 lbs)</option>
-                        <option value="small (1-19 lbs)">small (1-19 lbs)</option>
 
-                        <!-- Remainder of selections -->
-                    </select>
-                </div>
-           
+                <label for="dogSize">Dog Size:</label>
+                <select id="dogSize" name="dogSize">
+                    <option value="giant">giant (75 lbs +)</option>
+                    <option value="large">large (40-74 lbs)</option>
+                    <option value="med">medium (20-39 lbs)</option>
+                    <option value="small">small (1-19 lbs)</option>
+
+                    <!-- Remainder of selections -->
+                </select>
+
+
                 <label for="activityLevel">Activity Level:</label>
-                    <select id="activityLevel" name="activityLevel">
-                        <option value="low">Low</option>
-                        <option value="Med">Medium</option>
-                        <option value="High">High</option>
-                </div>
+                <select id="activityLevel" name="activityLevel">
+                    <option value="low">Low</option>
+                    <option value="med">Medium</option>
+                    <option value="high">High</option>
+            </div>
             <!-- Fourth row -->
             <div class="form-row4">
                 <label for="accommodations"></label>
@@ -156,35 +155,41 @@
 
                 <H5>Spayed or Neutered</H5>
                 <label id="fixed"><input type="checkbox" class="fixed">Check for Yes</label>
-                
 
-                <label for="favActivity"></label>
-                <input type="text" id="favActivity" name="favActivity" placeholder="My Favorite Activity">
+                <label for="favActivity">Favorite Activity:</label>
+                <select id="favActivity" name="favActivity">
+                    <option value="fetch">Fetch</option>
+                    <option value="chase">Chase</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="hiking">Hiking</option>
+                    <option value="snow sports">Snow Sports</option>
+                </select>
+
             </div>
             <!-- 5th row -->
             <div class="form-row5">
                 <H5>vaccinations up to date?</H5>
                 <label id="vax"><input type="checkbox" class="vaccinations">Check for Yes</label>
-                
+
 
                 <H5>Gets along with male Dogs?</H5>
                 <label id="maleDogs"><input type="checkbox" class="maleDogs">Check for Yes</label>
-                
+
                 <H5>Gets along with female Dogs?</H5>
                 <label id="femDogs"><input type="checkbox" class="femaleDogs">Check for Yes</label>
-                
-                
+
+
 
                 <H5>Gets along with male People?</H5>
                 <label id="maleHumans"><input type="checkbox" class="malePeople">Check for Yes</label>
-                
+
                 <H5>Gets along with female People?</H5>
                 <label id="femHumans"><input type="checkbox" class="femalePeople">Check for Yes</label>
-                
+
 
                 <H5>Service Dog?</H5>
                 <label id="service"><input type="checkbox" class="serviceDog">Check for Yes</label>
-                
+
             </div>
             <!-- submit button -->
             <div class="form-row">
@@ -193,7 +198,7 @@
         </form>
     </main>
     <footer></footer>
-    <script src="/js/form.js"></script>
+    <script src="/js/match.js"></script>
 </body>
 
 </html>
