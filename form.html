@@ -21,29 +21,33 @@
         <h1>Registration Form</h1>
         <form>
             <!-- First Row Owner Information Section -->
-            <div class="form-row1">
-                <label for="ownerName"></label>
-                <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
-                <label for="ownerEmail">:</label>
-                <input type="text" id="ownerEmail" name="ownerEmail" placeholder="ownerEmail">
-                <label for="city"></label>
-                <input type="text" id="city" name="city" placeholder="City">
-                <label for="state">State:</label>
-                <select id="state" name="state">
-                    <option value="option1">WA</option>
-                    <!-- <option value="option2">Option 2</option> -->
+            <fieldset class="form-section">
+                <legend>Owner Information</legend>
+                <div class="form-row">
+                  <label for="ownerName">Owner Name:</label>
+                  <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
+                  <label for="ownerEmail">Owner Email:</label>
+                  <input type="text" id="ownerEmail" name="ownerEmail" placeholder="Owner Email">
+                  <label for="ownerEmail">City:</label>
+                  <input type="text" id="city" name="city" placeholder="City">
+                  <label for="state">State:</label>
+                  <select type="dropdown" id="state" name="state" placeholder="State">
+                    <option value="option1">WA</option> 
                     <!-- Add more options as needed -->
-                </select>
-                <label for="zip"></label>
-                <input type="text" id="zip" name="zip" placeholder="Zip Code">
-            </div>
+                  <!-- ... other owner fields ... -->
+                  <label for="zipCode">Zip Code:</label>
+                  <input type="text" id="zip" name="zip" placeholder="Zip Code">
+                </div>
+              </fieldset>
 
             <!-- Second Row Dog Information Section -->
-            <div class="form-row2">
-                <label for="dogName"></label>
-                <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
-                <label for="breed1">1ST Breed:</label>
-                <select id="breed1" name="breed1">
+            <fieldset class="form-section">
+                <legend>Dog Information</legend>
+                <div class="form-row">
+                  <label for="dogName">Dog's Name:</label>
+                  <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
+                  <label for="breed1">1ST Breed:</label>
+                  <select type="dropdown" id="breed1" name="breed1" placeholder="breed1">
                     <option value="Labrador">Golden Retriever</option>
                     <option value="German Shepherd">Bulldog</option>
                     <option value="Beagle">Poodle</option>
@@ -76,9 +80,9 @@
                     <option value="Greyhound">Chow Chow</option>
                     <option value="Basenji">Norwegian Elkhound</option>
                     <!-- Add more breeds as needed -->
-                </select>
-                <label for="breed2">2ND Breed:</label>
-                <select id="breed2" name="breed2">
+                        </select>
+                   <label for="breed2">2ND Breed:</label>
+                   <select type="dropdown" id="breed2" name="breed2" placeholder="breed2">
                     <option value="N/A">N/A</option>
                     <option value="Labrador">Golden Retriever</option>
                     <option value="German Shepherd">Bulldog</option>
@@ -112,37 +116,41 @@
                     <option value="Greyhound">Chow Chow</option>
                     <option value="Basenji">Norwegian Elkhound</option>
                     <!-- Add more options as needed -->
-                </select>
-            </div>
+                </select>         
+                </div>
+              </fieldset>
 
             <!-- Third Row Dog Characteristics -->
-            <div class="form-row3">
-                <label for="dogAge"></label>
-                <input type="text" id="dogAge" name="dogAge" placeholder="Age of Dog">
 
-                <label for="temperament">Temperament</label>
-                <select id="temperament" name="temperament">
-                    <option value="energetic">energetic</option>
-                    <option value="calm">calm</option>
-                    <option value="protective">protective</option>
-                    <option value="independent">independent</option>
-                    <option value="shy">shy</option>
-                    <option value="affectionate">affectionate</option>
-                    <option value="dominant">dominant</option>
-                    <option value="outgoing">outgoing</option>
+            <fieldset class="form-section">
+                <legend>Dog Characteristics</legend>
+                <div class="form-row">
+                  <label for="dogAge">Dog's Age:</label>
+                  <input type="text" id="dogAge" name="dogAge" placeholder="Age of Dog">
+                  <label for="temperment">Temperment:</label>
+                  <select type="dropdown" id="temperment" name="temperment" placeholder="Temperment">
+                    <option value="energetic">Energetic</option>
+                    <option value="calm">Calm</option>
+                    <option value="protective">Protective</option>
+                    <option value="independent">Independent</option>
+                    <option value="shy">Shy</option>
+                    <option value="affectionate">Affectionate</option>
+                    <option value="dominant">Dominant</option>
+                    <option value="outgoing">Outgoing</option>
+                </select>
+                <label for="dogSize">Dog Size:</label>
+                <select type="dropdown" id="dogSize" name="dogSize" placeholder="Size of Dog">
+                    <option value="giant (75 lbs +)">Giant (75 lbs +)</option>
+                    <option value="large (40-74 lbs)">Large (40-74 lbs)</option>
+                    <option value="medium (20-39 lbs)">Medium (20-39 lbs)</option>
+                    <option value="small (1-19 lbs)">Small (1-19 lbs)</option>
+                    <!-- Remainder of selections -->
                 </select>
 
-                <div>
-                    <label for="dogSize">Dog Size:</label>
-                    <select id="dogSize" name="dogSize">
-                        <option value="giant (75 lbs +)">giant (75 lbs +)</option>
-                        <option value="large (40-74 lbs)">large (40-74 lbs)</option>
-                        <option value="medium (20-39 lbs)">medium (20-39 lbs)</option>
-                        <option value="small (1-19 lbs)">small (1-19 lbs)</option>
-
-                        <!-- Remainder of selections -->
-                    </select>
                 </div>
+              </fieldset>
+
+
                 <H5>Activity Level</H5>
                 <label id="activityLevelHigh"><input type="checkbox" class="activityLevel"> High</label>
                 <label id="activityLevelMed"><input type="checkbox" class="activityLevel"> Medium</label>

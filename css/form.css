@@ -185,3 +185,55 @@ body {
     margin-left: 12%;
     padding-right: 2%;
 }
+
+
+/* Form CSS*/
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-row {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .form-row label {
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+  
+  input[type="text"], select {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .submit-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* ... additional styling ... */
+  
