@@ -1,3 +1,7 @@
+
+////// THIS CODE NOW LIVES ON match.js ///////// 
+/// FILE TO BE DELETED
+
 document.addEventListener("DOMContentLoaded", function () {
     let form = document.querySelector('form');
     let formData = {};

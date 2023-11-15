@@ -1,247 +1,6 @@
 // Dog class to represent a dog with temperament and activity level
-let availableDogs = [];
-let newUserDogs = []; // Array to store UserDog instances
-
-// import formData from './form.js';
-// const formData = require("./form.js");
-// console.log(formData);
-
-let form = document.querySelector('form');
-let formData = {};
-
-form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Collect data from the form
-        formData = {
-            ownerName: document.getElementById('ownerName').value,
-            ownerEmail: document.getElementById('ownerEmail').value,
-            city: document.getElementById('city').value,
-            state: document.getElementById('state').value,
-            zip: document.getElementById('zip').value,
-            dogName: document.getElementById('dogName').value,
-            breed1: document.getElementById('breed1').value,
-            breed2: document.getElementById('breed2').value,
-            dogAge: document.getElementById('dogAge').value,
-            temperament: document.getElementById('temperament').value,
-            dogSize: document.getElementById('dogSize').value,
-            activityLevel: document.getElementById('activityLevel').value,
-            special: document.getElementById('special').value,
-            fixed: document.getElementById('fixed').querySelector('input').checked,
-            favActivity: document.getElementById('favActivity').value,
-            vax: document.getElementById('vax').querySelector('input').checked,
-            maleDogs: document.getElementById('maleDogs').querySelector('input').checked,
-            femDogs: document.getElementById('femDogs').querySelector('input').checked,
-            maleHumans: document.getElementById('maleHumans').querySelector('input').checked,
-            femHumans: document.getElementById('femHumans').querySelector('input').checked,
-            service: document.getElementById('service').querySelector('input').checked,
-
-        };
-        console.log("Form Data:", formData);
-        const newDog = new UserDog(formData);
-        newUserDogs.push(newDog);
-    });
-
-class UserDog {
-  constructor({
-    ownerName,
-    ownerEmail,
-    city,
-    state,
-    zip,
-    dogName,
-    breed1,
-    breed2,
-    dogAge,
-    temperament,
-    dogSize,
-    activityLevel,
-    special,
-    fixed,
-    favActivity,
-    vax,
-    maleDogs,
-    femDogs,
-    maleHumans,
-    femHumans,
-    service
-  }) {
-    this.ownerName = ownerName;
-    this.ownerEmail = ownerEmail;
-    this.city = city;
-    this.state = state;
-    this.zip = zip;
-    this.dogName = dogName;
-    this.breed1 = breed1;
-    this.breed2 = breed2;
-    this.dogAge = dogAge;
-    this.temperament = temperament;
-    this.dogSize = dogSize;
-    this.activityLevel = activityLevel;
-    this.special = special;
-    this.fixed = fixed;
-    this.favActivity = favActivity;
-    this.vax = vax;
-    this.maleDogs = maleDogs;
-    this.femDogs = femDogs;
-    this.maleHumans = maleHumans;
-    this.femHumans = femHumans;
-    this.service = service;
-  }
-}
-
-
-// let newUserDog = new UserDog(formData);
-// console.log(formData);
-// console.log(newUserDog)
-
-// Now you can use the userDog instance as needed
-// console.log(userDog);
-
-
-
-
-// class UserDog {
-//   constructor(formData) {
-//     this.ownerName = formData.ownerName;
-//     this.ownerEmail = formData.ownerEmail;
-//     this.city = formData.city
-//     this.dogName = formData.dogName;
-//   }
-// }
-  //   dogName,
-  //   temperament,
-  //   activityLevel,
-  //   favActivity,
-  //   dogSize,
-  //   dogAge,
-  //   breed1,
-  //   ownerName,
-  //   ownerEmail,
-  //   fixed,
-  //   femDogs,
-  //   maleDogs,
-  //   femHumans,
-  //   maleHumans,
-  //   vax,
-  //   special,
-  //   service,
-  //   breed2,
-  //   city = 'seattle', // default values for testing - can be removed
-  //   state = 'wa', // default values for testing - can be removed
-  //   zip = 98101 // default values for testing - can be removed
-  // ) {
-  //   this.dogName = dogName;
-  //   this.temperament = temperament;
-  //   this.activityLevel = activityLevel;
-  //   this.ownerName = ownerName;
-  //   this.ownerEmail = ownerEmail;
-  //   this.breed1 = breed1;
-  //   this.breed2 = breed2;
-  //   this.dogAge = dogAge;
-  //   this.dogSize = dogSize;
-  //   this.special = special;
-  //   this.fixed = fixed;
-  //   this.favActivity = favActivity;
-  //   this.vax = vax;
-  //   this.service = service;
-  //   this.femDogs = femDogs;
-  //   this.maleDogs = maleDogs;
-  //   this.femHumans = femHumans;
-  //   this.maleHumans = maleHumans;
-  //   this.city = city;
-  //   this.state = state;
-  //   this.zip = zip;
-
-// export default UserDog;
-
-// Function to match dogs based on temperament and activity level
-class AvailableDogs {
-  constructor(
-    dogName,
-    temperament,
-    activityLevel,
-    favActivity,
-    dogSize,
-    dogAge,
-    breed1,
-    ownerName,
-    ownerEmail,
-    fixed,
-    femDogs,
-    maleDogs,
-    femHumans,
-    maleHumans,
-    vax,
-    special = false,
-    service = false,
-    breed2 = null,
-    city = 'seattle',
-    state = 'wa',
-    zip = 98101,
-    ageDiff = 0,
-    matchScore = 0
-  ) {
-    this.dogName = dogName;
-    this.temperament = temperament;
-    this.activityLevel = activityLevel;
-    this.ownerName = ownerName;
-    this.ownerEmail = ownerEmail;
-    this.breed1 = breed1;
-    this.breed2 = breed2;
-    this.dogAge = dogAge;
-    this.dogSize = dogSize;
-    this.special = special;
-    this.fixed = fixed;
-    this.favActivity = favActivity;
-    this.vax = vax;
-    this.service = service;
-    this.femDogs = femDogs;
-    this.maleDogs = maleDogs;
-    this.femHumans = femHumans;
-    this.maleHumans = maleHumans;
-    this.city = city;
-    this.state = state;
-    this.zip = zip;
-    this.ageDiff = ageDiff;
-    this.matchScore = matchScore;
-  }
-
-
-
-  // Match Score Calculation
-
-  calcMatchScore(userDog) {
-    if (this.city === userDog.city || this.zip === userDog.zip) {
-      if (this.temperament === userDog.temperament) {
-        this.matchScore += 5;
-      }
-      if (this.activityLevel === userDog.activityLevel) {
-        this.matchScore += 4;
-      }
-      const ageDiff = difference(this.dogAge, userDog.dogAge);
-      this.ageDiff = ageDiff;
-      if (ageDiff <= 3) {
-        this.matchScore += 2;
-      }
-      if (this.dogSize === userDog.dogSize) {
-        this.matchScore += 3;
-      }
-      if (this.fixed === userDog.fixed) {
-        this.matchScore += 1;
-      }
-      if (this.femDogs === userDog.femDogs || this.maleDogs === userDog.maleDogs) {
-        this.matchScore += 2;
-      }
-      if (this.femHumans === userDog.femHumans || this.maleHumans === userDog.maleHumans) {
-        this.matchScore += 2;
-      }
-      return this.matchScore;
-    } else {
-      console.log('no match available in your area')
-    }
-  }
-}
+const availableDogs = []; // Array to store created dogs instances
+const newUserDogs = []; // Array to store UserDog instances
 
 ////////////////////////////////
 //// CREATE DOG DATA //////////
@@ -412,8 +171,165 @@ const humanNames = [
   'Lily',
 ];
 
+class UserDog {
+  constructor({
+    ownerName,
+    ownerEmail,
+    city,
+    state,
+    zip,
+    dogName,
+    breed1,
+    breed2,
+    dogAge,
+    temperament,
+    dogSize,
+    activityLevel,
+    special,
+    fixed,
+    favActivity,
+    vax,
+    maleDogs,
+    femDogs,
+    maleHumans,
+    femHumans,
+    service,
+  }) {
+    this.ownerName = ownerName;
+    this.ownerEmail = ownerEmail;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.dogName = dogName;
+    this.breed1 = breed1;
+    this.breed2 = breed2;
+    this.dogAge = dogAge;
+    this.temperament = temperament;
+    this.dogSize = dogSize;
+    this.activityLevel = activityLevel;
+    this.special = special;
+    this.fixed = fixed;
+    this.favActivity = favActivity;
+    this.vax = vax;
+    this.maleDogs = maleDogs;
+    this.femDogs = femDogs;
+    this.maleHumans = maleHumans;
+    this.femHumans = femHumans;
+    this.service = service;
+  }
+}
+
+// EXISTING DOGS
+class AvailableDogs {
+  constructor(
+    dogName,
+    temperament,
+    activityLevel,
+    favActivity,
+    dogSize,
+    dogAge,
+    breed1,
+    ownerName,
+    ownerEmail,
+    fixed,
+    femDogs,
+    maleDogs,
+    femHumans,
+    maleHumans,
+    vax,
+    special = false,
+    service = false,
+    breed2 = null,
+    city = 'seattle',
+    state = 'wa',
+    zip = 98101,
+    ageDiff = 0,
+    matchScore = 0
+  ) {
+    this.dogName = dogName;
+    this.temperament = temperament;
+    this.activityLevel = activityLevel;
+    this.ownerName = ownerName;
+    this.ownerEmail = ownerEmail;
+    this.breed1 = breed1;
+    this.breed2 = breed2;
+    this.dogAge = dogAge;
+    this.dogSize = dogSize;
+    this.special = special;
+    this.fixed = fixed;
+    this.favActivity = favActivity;
+    this.vax = vax;
+    this.service = service;
+    this.femDogs = femDogs;
+    this.maleDogs = maleDogs;
+    this.femHumans = femHumans;
+    this.maleHumans = maleHumans;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.ageDiff = ageDiff;
+    this.matchScore = matchScore;
+  }
+
+  // Match Score Calculation
+  calcMatchScore(userDog) {
+    if (this.city === userDog.city || this.zip === userDog.zip) {
+      if (this.temperament === userDog.temperament) {
+        this.matchScore += 5;
+      }
+      if (this.activityLevel === userDog.activityLevel) {
+        this.matchScore += 4;
+      }
+      const ageDiff = difference(this.dogAge, userDog.dogAge);
+      this.ageDiff = ageDiff;
+      if (ageDiff <= 3) {
+        this.matchScore += 2;
+      }
+      if (this.dogSize === userDog.dogSize) {
+        this.matchScore += 3;
+      }
+      if (this.fixed === userDog.fixed) {
+        this.matchScore += 1;
+      }
+      if (
+        this.femDogs === userDog.femDogs ||
+        this.maleDogs === userDog.maleDogs
+      ) {
+        this.matchScore += 2;
+      }
+      if (
+        this.femHumans === userDog.femHumans ||
+        this.maleHumans === userDog.maleHumans
+      ) {
+        this.matchScore += 2;
+      }
+      return this.matchScore;
+    } else {
+      console.log('no match available in your area');
+    }
+  }
+}
+//////HELPER FUNCTIONS////////
+
+// randomize array
+// Fisher Yates function via chatGPT
+function shuffleArray(array) {
+  const shuffledArray = [...array]; // Create a copy of the array to avoid modifying the original
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
+
+function difference(a, b) {
+  return Math.abs(a - b);
+}
+
 const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
 
+
+// EXISTING DOG DATA CREATION //////
 
 function initDogs() {
   let shuffledDogNames = shuffleArray(dogNames);
@@ -443,7 +359,7 @@ function initDogs() {
     shuffledHumans.length
   );
 
-/* modulo operator (%) is used to cycle through the arrays. This way, even if one array runs out of elements, it will start again from the beginning of that array */
+  /* modulo operator (%) is used to cycle through the arrays. This way, even if one array runs out of elements, it will start again from the beginning of that array */
 
   for (let i = 0; i < maxLength; i++) {
     const dogInstance = new AvailableDogs(
@@ -456,7 +372,7 @@ function initDogs() {
       shuffledBreeds[i % shuffledBreeds.length],
       shuffledHumans[i % shuffledHumans.length],
       `${shuffledHumans[i % shuffledHumans.length]}@gmail.com`,
-      randomFixed, // fixed 
+      randomFixed, // fixed
       randomFemDogs, // femDogs
       randomMaleDogs, // maleDogs
       randomFemHumans, // femHumans
@@ -469,46 +385,60 @@ function initDogs() {
 
 initDogs();
 
-//////HELPER FUNCTIONS////////
 
-// randomize array
-// Fisher Yates function via chatGPT
-function shuffleArray(array) {
-  const shuffledArray = [...array]; // Create a copy of the array to avoid modifying the original
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+/// USER INPUT HANDLING //////////////
+
+let form = document.querySelector('form');
+let formData = {};
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Collect data from the form
+  formData = {
+    ownerName: document.getElementById('ownerName').value,
+    ownerEmail: document.getElementById('ownerEmail').value,
+    city: document.getElementById('city').value,
+    state: document.getElementById('state').value,
+    zip: document.getElementById('zip').value,
+    dogName: document.getElementById('dogName').value,
+    breed1: document.getElementById('breed1').value,
+    breed2: document.getElementById('breed2').value,
+    dogAge: document.getElementById('dogAge').value,
+    temperament: document.getElementById('temperament').value,
+    dogSize: document.getElementById('dogSize').value,
+    activityLevel: document.getElementById('activityLevel').value,
+    special: document.getElementById('special').value,
+    fixed: document.getElementById('fixed').querySelector('input').checked,
+    favActivity: document.getElementById('favActivity').value,
+    vax: document.getElementById('vax').querySelector('input').checked,
+    maleDogs: document.getElementById('maleDogs').querySelector('input')
+      .checked,
+    femDogs: document.getElementById('femDogs').querySelector('input').checked,
+    maleHumans: document.getElementById('maleHumans').querySelector('input')
+      .checked,
+    femHumans: document.getElementById('femHumans').querySelector('input')
+      .checked,
+    service: document.getElementById('service').querySelector('input').checked,
+  };
+  // console.log('Form Data:', formData);
+  const newDog = new UserDog(formData);
+  newUserDogs.push(newDog);
+
+  // Calculate match scores for each AvailableDogs instance
+  for (const dog of availableDogs) {
+    dog.calcMatchScore(newDog);
   }
-  return shuffledArray;
-}
 
-function difference(a, b) {
-  return Math.abs(a - b);
-}
+  // Render matches after calculating match scores
+  renderMatches();
+});
 
-//////// USER INPUT COLLECTED FROM FORM ////////////
-
-// STATIC user dog - to be updated with object from Form
-const userDog = new UserDog(
-  'UserDog',
-  'friendly',
-  'high',
-  'fetch',
-  'medium',
-  7,
-  'Australian Shepherd',
-  true
-);
-
-console.log(`user dog: ${JSON.stringify(userDog, null, 2)}`);
 
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
 ////////////////////////////////////////////////////
 
-for (const dog of availableDogs) {
-  dog.calcMatchScore(userDog);
-}
 
 function renderMatches() {
   // Sort the availableDogs array by matchScore in descending order
@@ -523,3 +453,58 @@ function renderMatches() {
   return topDogs;
 }
 renderMatches();
+
+//////////////////////////////////////////////////////
+///////////// LOCAL STORAGE ////////////////////////
+////////////////////////////////////////////////////
+
+const userStorageKey = 'userKey';
+
+function saveNewUsers() {
+  const userStorageText = JSON.stringify(newUserDogs); // convert array to string
+  localStorage.setItem(userStorageKey, userStorageText); // set value
+}
+
+function parseStoredUsers(storageText) {
+  // restore from storage
+  const storedUserObjects = JSON.parse(storageText);
+
+  availableDogs.length = 0;
+
+  for (let userObject of storedUserObjects) {
+    const currentUser = new UserDog(
+      userObject.ownerName,
+      userObject.ownerEmail,
+      userObject.city
+    );
+    availableDogs.push(currentUser);
+  }
+  console.log(availableDogs);
+}
+
+function loadUsers() {
+  const userStorageText = localStorage.getItem(userStorageKey); // access stored user data stored in the saveNewUsers() function
+  console.log(userStorageText);
+  if (userStorageText) {
+    parseStoredUsers(userStorageText); // if there is stored user data, access it and parse it, if not init
+  } else {
+    console.log('no stored user data');
+  }
+}
+
+// loadUsers();
+
+
+// STATIC user dog - to be updated with object from Form
+// const userDog = new UserDog(
+//   'UserDog',
+//   'friendly',
+//   'high',
+//   'fetch',
+//   'medium',
+//   7,
+//   'Australian Shepherd',
+//   true
+// );
+
+// console.log(`user dog: ${JSON.stringify(userDog, null, 2)}`);
