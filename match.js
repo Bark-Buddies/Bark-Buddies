@@ -304,7 +304,7 @@ class AvailableDogs {
         ) {
           this.matchScore += 2;
         }
-        if (this.matchScore > 15) {
+        if (this.matchScore > 5) {
          
          
           // Push the dogs with a match score over 15 to a specific array
@@ -339,7 +339,7 @@ function difference(a, b) {
   return Math.abs(a - b);
 }
 
-const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
+const randomBoolean = () => Math.random() >= 0.8; // 50% probability of getting true
 
 
 // EXISTING DOG DATA CREATION //////
