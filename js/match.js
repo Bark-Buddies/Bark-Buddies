@@ -339,7 +339,7 @@ function difference(a, b) {
   return Math.abs(a - b);
 }
 
-const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
+const randomBoolean = () => Math.random() >= 0.2; // 50% probability of getting true
 
 
 // EXISTING DOG DATA CREATION //////
@@ -483,7 +483,7 @@ function parseStoredUsers(storageText) {
   // restore from storage
   const storedUserObjects = JSON.parse(storageText);
 
-  matchedDogsArray.length = 0;
+  availableDogs.length = 0;
 
   for (let userObject of storedUserObjects) {
     const currentUser = new UserDog(
@@ -491,7 +491,7 @@ function parseStoredUsers(storageText) {
       userObject.ownerEmail,
       userObject.city
     );
-    matchedDogsArray.push(currentUser);
+    availableDogs.push(currentUser);
   }
   console.log(availableDogs);
 }
