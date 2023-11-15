@@ -1,7 +1,7 @@
 // Dog class to represent a dog with temperament and activity level
 const availableDogs = []; // Array to store created dogs instances
 const newUserDogs = []; // Array to store UserDog instances
-
+const matchedDogsArray = [];
 ////////////////////////////////
 //// CREATE DOG DATA //////////
 ///////////////////////////////
@@ -240,8 +240,8 @@ class AvailableDogs {
     special = false,
     service = false,
     breed2 = null,
-    city = 'seattle',
-    state = 'wa',
+    city = 'Seattle',
+    state = 'WA',
     zip = 98101,
     ageDiff = 0,
     matchScore = 0
@@ -273,6 +273,7 @@ class AvailableDogs {
 
   // Match Score Calculation
   calcMatchScore(userDog) {
+    console.log('Matching', this.dogName, 'with', userDog.dogName);
     if (this.city === userDog.city || this.zip === userDog.zip) {
       if (this.temperament === userDog.temperament) {
         this.matchScore += 5;
@@ -300,9 +301,21 @@ class AvailableDogs {
       if (
         this.femHumans === userDog.femHumans ||
         this.maleHumans === userDog.maleHumans
-      ) {
-        this.matchScore += 2;
-      }
+        ) {
+          this.matchScore += 2;
+        }
+        if (this.matchScore > 15) {
+          console.log('Match Made In Heaven:', this.matchScore);
+         
+          // Push the dogs with a match score over 8 to a specific array
+          matchedDogsArray.push({
+            dog1: this,
+            dog2: userDog,
+            matchScore: this.matchScore,
+          });
+        }
+        console.log('Matched Dogs Array:', matchedDogsArray);
+    
       return this.matchScore;
     } else {
       console.log('no match available in your area');
@@ -450,6 +463,7 @@ function renderMatches() {
   console.log('Top Dogs with the highest matchScore:');
   console.log(availableDogs);
 
+    // Log matchedDogsArray
   return topDogs;
 }
 renderMatches();
