@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/form.css">
     <title>Form</title>
 </head>
@@ -12,133 +13,141 @@
     <header>
         <nav>
             <img class="logo" src="Img/barklogo1.png" alt="logo">
-            <a href="http://">Home</a>
-            <a href="http://">Form</a>
+            <a href="index.html">Home</a>
+            <!-- <a href="http://">Form</a> -->
         </nav>
     </header>
     <main>
         <form>
-            <!-- First Row -->
-            <div class="form-row1">
-                <label for="ownerName"></label>
-                <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
-                <label for="ownerEmail">:</label>
-                <input type="text" id="ownerEmail" name="ownerEmail" placeholder="ownerEmail">
-                <label for="city"></label>
-                <input type="text" id="city" name="city" placeholder="City">
-                <label for="state">State:</label>
-                <select id="state" name="state">
-                    <option value="WA">WA</option>
-                </select>
-                <label for="zip"></label>
-                <input type="text" id="zip" name="zip" placeholder="Zip Code">
-            </div>
+                       <!-- First Row Owner Information Section -->
+                       <fieldset class="form-section">
+                        <legend>Owner Information</legend>
+                        <div class="form-row">
+                          <label for="ownerName">Owner Name:</label>
+                          <input type="text" id="ownerName" name="ownerName" placeholder="Owner Name">
+                          <label for="ownerEmail">Owner Email:</label>
+                          <input type="text" id="ownerEmail" name="ownerEmail" placeholder="Owner Email">
+                          <label for="ownerEmail">City:</label>
+                          <input type="text" id="city" name="city" placeholder="City">
+                          <label for="state">State:</label>
+                          <select type="dropdown" id="state" name="state" placeholder="State">
+                            <option value="option1">WA</option> 
+                            <!-- Add more options as needed -->
+                          <!-- ... other owner fields ... -->
+                          <label for="zipCode">Zip Code:</label>
+                          <input type="text" id="zip" name="zip" placeholder="Zip Code">
+                        </div>
+                      </fieldset>
 
-            <!-- Second Row -->
-            <div class="form-row2">
-                <label for="dogName"></label>
-                <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
-                <label for="breed1">1ST Breed:</label>
-                <select id="breed1" name="breed1">
-                    <option value="Labrador">Golden Retriever</option>
-                    <option value="German Shepherd">Bulldog</option>
-                    <option value="Beagle">Poodle</option>
-                    <option value="Boxer">Dachshund</option>
-                    <option value="Shih Tzu">Siberian Husky</option>
-                    <option value="Chihuahua">Rottweiler</option>
-                    <option value="Great Dane">Corgi</option>
-                    <option value="Doberman">Shetland Sheepdog</option>
-                    <option value="Pug">Australian Shepherd</option>
-                    <option value="Border Collie">Basset Hound</option>
-                    <option value="Cocker Spaniel">Whippet</option>
-                    <option value="Newfoundland">Akita</option>
-                    <option value="Bichon Frise">Rhodesian Ridgeback</option>
-                    <option value="Samoyed">Bernese Mountain Dog</option>
-                    <option value="Maltese">Pomeranian</option>
-                    <option value="Yorkshire Terrier">Scottish Terrier</option>
-                    <option value="Dalmatian">Irish Setter</option>
-                    <option value="French Bulldog">English Bulldog</option>
-                    <option value="Shiba Inu">Papillon</option>
-                    <option value="Boxer">Collie</option>
-                    <option value="Jack Russell Terrier">Basset Hound</option>
-                    <option value="Golden Retriever">Dachshund</option>
-                    <option value="Cavalier King Charles Spaniel">Great Dane</option>
-                    <option value="Schnauzer">Puggle</option>
-                    <option value="Havanese">Borzoi</option>
-                    <option value="Weimaraner">English Springer Spaniel</option>
-                    <option value="Poodle">Alaskan Malamute</option>
-                    <option value="Bulldog">Cane Corso</option>
-                    <option value="Shih Tzu">Italian Greyhound</option>
-                    <option value="Greyhound">Chow Chow</option>
-                    <option value="Basenji">Norwegian Elkhound</option>
-                    <!-- Add more breeds as needed -->
-                </select>
-                <label for="breed2">2ND Breed:</label>
-                <select id="breed2" name="breed2">
-                    <option value="N/A">N/A</option>
-                    <option value="Labrador">Golden Retriever</option>
-                    <option value="German Shepherd">Bulldog</option>
-                    <option value="Beagle">Poodle</option>
-                    <option value="Boxer">Dachshund</option>
-                    <option value="Shih Tzu">Siberian Husky</option>
-                    <option value="Chihuahua">Rottweiler</option>
-                    <option value="Great Dane">Corgi</option>
-                    <option value="Doberman">Shetland Sheepdog</option>
-                    <option value="Pug">Australian Shepherd</option>
-                    <option value="Border Collie">Basset Hound</option>
-                    <option value="Cocker Spaniel">Whippet</option>
-                    <option value="Newfoundland">Akita</option>
-                    <option value="Bichon Frise">Rhodesian Ridgeback</option>
-                    <option value="Samoyed">Bernese Mountain Dog</option>
-                    <option value="Maltese">Pomeranian</option>
-                    <option value="Yorkshire Terrier">Scottish Terrier</option>
-                    <option value="Dalmatian">Irish Setter</option>
-                    <option value="French Bulldog">English Bulldog</option>
-                    <option value="Shiba Inu">Papillon</option>
-                    <option value="Boxer">Collie</option>
-                    <option value="Jack Russell Terrier">Basset Hound</option>
-                    <option value="Golden Retriever">Dachshund</option>
-                    <option value="Cavalier King Charles Spaniel">Great Dane</option>
-                    <option value="Schnauzer">Puggle</option>
-                    <option value="Havanese">Borzoi</option>
-                    <option value="Weimaraner">English Springer Spaniel</option>
-                    <option value="Poodle">Alaskan Malamute</option>
-                    <option value="Bulldog">Cane Corso</option>
-                    <option value="Shih Tzu">Italian Greyhound</option>
-                    <option value="Greyhound">Chow Chow</option>
-                    <option value="Basenji">Norwegian Elkhound</option>
-                    <option value="other">Other</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
+<!-- Second Row Dog Information Section -->
+<fieldset class="form-section">
+    <legend>Dog Information</legend>
+    <div class="form-row">
+      <label for="dogName">Dog's Name:</label>
+      <input type="text" id="dogName" name="dogName" placeholder="Dog's Name">
+      <label for="breed1">1ST Breed:</label>
+      <select type="dropdown" id="breed1" name="breed1" placeholder="breed1">
+        <option value="Labrador">Golden Retriever</option>
+        <option value="German Shepherd">Bulldog</option>
+        <option value="Beagle">Poodle</option>
+        <option value="Boxer">Dachshund</option>
+        <option value="Shih Tzu">Siberian Husky</option>
+        <option value="Chihuahua">Rottweiler</option>
+        <option value="Great Dane">Corgi</option>
+        <option value="Doberman">Shetland Sheepdog</option>
+        <option value="Pug">Australian Shepherd</option>
+        <option value="Border Collie">Basset Hound</option>
+        <option value="Cocker Spaniel">Whippet</option>
+        <option value="Newfoundland">Akita</option>
+        <option value="Bichon Frise">Rhodesian Ridgeback</option>
+        <option value="Samoyed">Bernese Mountain Dog</option>
+        <option value="Maltese">Pomeranian</option>
+        <option value="Yorkshire Terrier">Scottish Terrier</option>
+        <option value="Dalmatian">Irish Setter</option>
+        <option value="French Bulldog">English Bulldog</option>
+        <option value="Shiba Inu">Papillon</option>
+        <option value="Boxer">Collie</option>
+        <option value="Jack Russell Terrier">Basset Hound</option>
+        <option value="Golden Retriever">Dachshund</option>
+        <option value="Cavalier King Charles Spaniel">Great Dane</option>
+        <option value="Schnauzer">Puggle</option>
+        <option value="Havanese">Borzoi</option>
+        <option value="Weimaraner">English Springer Spaniel</option>
+        <option value="Poodle">Alaskan Malamute</option>
+        <option value="Bulldog">Cane Corso</option>
+        <option value="Shih Tzu">Italian Greyhound</option>
+        <option value="Greyhound">Chow Chow</option>
+        <option value="Basenji">Norwegian Elkhound</option>
+        <!-- Add more breeds as needed -->
+            </select>
+       <label for="breed2">2ND Breed:</label>
+       <select type="dropdown" id="breed2" name="breed2" placeholder="breed2">
+        <option value="N/A">N/A</option>
+        <option value="Labrador">Golden Retriever</option>
+        <option value="German Shepherd">Bulldog</option>
+        <option value="Beagle">Poodle</option>
+        <option value="Boxer">Dachshund</option>
+        <option value="Shih Tzu">Siberian Husky</option>
+        <option value="Chihuahua">Rottweiler</option>
+        <option value="Great Dane">Corgi</option>
+        <option value="Doberman">Shetland Sheepdog</option>
+        <option value="Pug">Australian Shepherd</option>
+        <option value="Border Collie">Basset Hound</option>
+        <option value="Cocker Spaniel">Whippet</option>
+        <option value="Newfoundland">Akita</option>
+        <option value="Bichon Frise">Rhodesian Ridgeback</option>
+        <option value="Samoyed">Bernese Mountain Dog</option>
+        <option value="Maltese">Pomeranian</option>
+        <option value="Yorkshire Terrier">Scottish Terrier</option>
+        <option value="Dalmatian">Irish Setter</option>
+        <option value="French Bulldog">English Bulldog</option>
+        <option value="Shiba Inu">Papillon</option>
+        <option value="Boxer">Collie</option>
+        <option value="Jack Russell Terrier">Basset Hound</option>
+        <option value="Golden Retriever">Dachshund</option>
+        <option value="Cavalier King Charles Spaniel">Great Dane</option>
+        <option value="Schnauzer">Puggle</option>
+        <option value="Havanese">Borzoi</option>
+        <option value="Weimaraner">English Springer Spaniel</option>
+        <option value="Poodle">Alaskan Malamute</option>
+        <option value="Bulldog">Cane Corso</option>
+        <option value="Shih Tzu">Italian Greyhound</option>
+        <option value="Greyhound">Chow Chow</option>
+        <option value="Basenji">Norwegian Elkhound</option>
+        <!-- Add more options as needed -->
+    </select>         
+    </div>
+  </fieldset>
 
-            <!-- Third Row -->
-            <div class="form-row3">
-                <label for="dogAge"></label>
-                <input type="text" id="dogAge" name="dogAge" placeholder="Age of Dog">
+ <!-- Third Row Dog Characteristics -->
 
-                <label for="temperament">Temperament</label>
-                <select id="temperament" name="temperament">
-                    <option value="energetic">energetic</option>
-                    <option value="calm">calm</option>
-                    <option value="protective">protective</option>
-                    <option value="independent">independent</option>
-                    <option value="shy">shy</option>
-                    <option value="affectionate">affectionate</option>
-                    <option value="dominant">dominant</option>
-                    <option value="outgoing">outgoing</option>
-                </select>
+ <fieldset class="form-section">
+    <legend>Dog Characteristics</legend>
+    <div class="form-row">
+      <label for="dogAge">Dog's Age:</label>
+      <input type="text" id="dogAge" name="dogAge" placeholder="Age of Dog">
+      <label for="temperment">Temperment:</label>
+      <select type="dropdown" id="temperment" name="temperment" placeholder="Temperment">
+        <option value="energetic">Energetic</option>
+        <option value="calm">Calm</option>
+        <option value="protective">Protective</option>
+        <option value="independent">Independent</option>
+        <option value="shy">Shy</option>
+        <option value="affectionate">Affectionate</option>
+        <option value="dominant">Dominant</option>
+        <option value="outgoing">Outgoing</option>
+    </select>
+    <label for="dogSize">Dog Size:</label>
+    <select type="dropdown" id="dogSize" name="dogSize" placeholder="Size of Dog">
+        <option value="giant (75 lbs +)">Giant (75 lbs +)</option>
+        <option value="large (40-74 lbs)">Large (40-74 lbs)</option>
+        <option value="medium (20-39 lbs)">Medium (20-39 lbs)</option>
+        <option value="small (1-19 lbs)">Small (1-19 lbs)</option>
+        <!-- Remainder of selections -->
+    </select>
 
-
-                <label for="dogSize">Dog Size:</label>
-                <select id="dogSize" name="dogSize">
-                    <option value="giant">giant (75 lbs +)</option>
-                    <option value="large">large (40-74 lbs)</option>
-                    <option value="med">medium (20-39 lbs)</option>
-                    <option value="small">small (1-19 lbs)</option>
-
-                    <!-- Remainder of selections -->
-                </select>
+    </div>
+  </fieldset>
 
 
                 <label for="activityLevel">Activity Level:</label>
@@ -197,7 +206,7 @@
             </div>
         </form>
     </main>
-    <footer></footer>
+    <footer>&copy;2023</footer>
     <script src="/js/match.js"></script>
 </body>
 
