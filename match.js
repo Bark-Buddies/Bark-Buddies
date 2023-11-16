@@ -545,11 +545,35 @@ function renderOnScreen(topDogsData) {
 
   const ownerNameCell2 = document.createElement('td');
   dataRow2.appendChild(ownerNameCell2);
-  ownerNameCell2.textContent = dog2Array[0];
+  ownerNameCell2.textContent = dog2Array[0]; // owner 2 name
 
   const dog2NameCell = document.createElement('td');
-  dataRow2.appendChild(ownerNameCell2);
-  dog2NameCell.textContent = dog2Array[1]; // dog name
+  dataRow2.appendChild(dog2NameCell);
+  dog2NameCell.textContent = dog2Array[1]; // dog 2 name
+
+  const dog2BreedCell = document.createElement('td');
+  dataRow2.appendChild(dog2BreedCell);
+  dog2BreedCell.textContent = dog2Array[2]; // dog 2 breed
+
+  const dog2AgeCell = document.createElement('td');
+  dataRow2.appendChild(dog2AgeCell);
+  dog2AgeCell.textContent = dog2Array[3]; // dog 2 age
+
+  const dog2SizeCell = document.createElement('td');
+  dataRow2.appendChild(dog2SizeCell);
+  dog2SizeCell.textContent = dog2Array[4]; // dog 2 size
+
+  const dog2ActivityLevelCell = document.createElement('td');
+  dataRow2.appendChild(dog2ActivityLevelCell);
+  dog2ActivityLevelCell.textContent = dog2Array[5]; // dog 2 activity level
+
+  const dog2FavActivityCell = document.createElement('td');
+  dataRow2.appendChild(dog2FavActivityCell);
+  dog2FavActivityCell.textContent = dog2Array[6]; // dog 2 fav activity
+
+  const dog2OwnerEmailCell = document.createElement('td');
+  dataRow2.appendChild(dog2OwnerEmailCell);
+  dog2OwnerEmailCell.textContent = dog2Array[7]; // dog 2 owner contact (email)
 
   console.log(dog1Array);
   console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName
