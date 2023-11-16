@@ -587,9 +587,25 @@ function renderOnScreen(topDogsData) {
   dataRow2.appendChild(dog2FavActivityCell);
   dog2FavActivityCell.textContent = dog2Array[6]; // dog 2 fav activity
 
-  const dog2OwnerEmailCell = document.createElement('td');
-  dataRow2.appendChild(dog2OwnerEmailCell);
-  dog2OwnerEmailCell.textContent = dog2Array[7]; // dog 2 owner contact (email)
+  const button2 = document.createElement('button');
+  dataRow2.appendChild(button2);
+
+  // Set the email address as the text content of the button
+  const emailAddressTwo = dog2Array[7];
+  button2.textContent = 'Contact Me!';
+
+  const ownerContactCell2 = document.createElement('td');
+  dataRow2.appendChild(ownerContactCell2);
+  // ownerContactCell.textContent = emailAddressOne; // owner contact, dont need?
+
+  // Add a click event listener to open the default email client when the button is clicked
+  button2.addEventListener('click', function () {
+    window.location.href = 'mailto:' + emailAddressTwo;
+  });
+
+  // const dog2OwnerEmailCell = document.createElement('td');
+  // dataRow2.appendChild(dog2OwnerEmailCell);
+  // dog2OwnerEmailCell.textContent = dog2Array[7]; // dog 2 owner contact (email)
 
   console.log(dog1Array);
   console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName
