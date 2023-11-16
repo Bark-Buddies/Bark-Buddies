@@ -275,7 +275,7 @@ class AvailableDogs {
   // Match Score Calculation
   calcMatchScore(userDog) {
     // console.log('Matching', this.dogName, 'with', userDog.dogName);
-    if (this.city === userDog.city || this.zip === userDog.zip) {
+    if (this.city.toLowerCase() === userDog.city.toLowerCase() || this.zip === userDog.zip) {
       if (this.temperament === userDog.temperament) {
         this.matchScore += 5;
       }
@@ -451,6 +451,9 @@ form?.addEventListener('submit', function (event) {
     tableRendered = true; // Set the flag to true after rendering the table
   }
 
+  // Change the header text when the table is rendered
+  document.getElementById('mainHeader').textContent = `Here are your dog's Buddies!`;
+
 });
 
 function renderOnScreen(topDogsData) {
@@ -529,12 +532,13 @@ function renderOnScreen(topDogsData) {
   dataRow1.appendChild(activityLevelCell);
   activityLevelCell.textContent = dog1Array[5]; // activity level
 
-  const favoriteActvityCell = document.createElement('td');
-  dataRow1.appendChild(favoriteActvityCell);
-  favoriteActvityCell.textContent = dog1Array[6]; // favorite activity
+  const favoriteActivityCell = document.createElement('td');
+  dataRow1.appendChild(favoriteActivityCell);
+  favoriteActivityCell.textContent = dog1Array[6]; // favorite activity
 
   const button = document.createElement('button');
   dataRow1.appendChild(button);
+  button.classList.add('matchButton');
 
   // Set the email address as the text content of the button
   const emailAddressOne = dog1Array[7];
@@ -542,7 +546,6 @@ function renderOnScreen(topDogsData) {
 
   const ownerContactCell = document.createElement('td');
   dataRow1.appendChild(ownerContactCell);
-  // ownerContactCell.textContent = emailAddressOne; // owner contact, dont need?
 
   // Add a click event listener to open the default email client when the button is clicked
   button.addEventListener('click', function () {
@@ -589,6 +592,7 @@ function renderOnScreen(topDogsData) {
 
   const button2 = document.createElement('button');
   dataRow2.appendChild(button2);
+  button2.classList.add('matchButton');
 
   // Set the email address as the text content of the button
   const emailAddressTwo = dog2Array[7];
@@ -596,29 +600,21 @@ function renderOnScreen(topDogsData) {
 
   const ownerContactCell2 = document.createElement('td');
   dataRow2.appendChild(ownerContactCell2);
-  // ownerContactCell.textContent = emailAddressOne; // owner contact, dont need?
 
   // Add a click event listener to open the default email client when the button is clicked
   button2.addEventListener('click', function () {
     window.location.href = 'mailto:' + emailAddressTwo;
   });
 
-  // const dog2OwnerEmailCell = document.createElement('td');
-  // dataRow2.appendChild(dog2OwnerEmailCell);
-  // dog2OwnerEmailCell.textContent = dog2Array[7]; // dog 2 owner contact (email)
-
-  console.log(dog1Array);
-  console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName
-  console.log(dog2Array);
 }
 
 // global reference to container referenced by DOM
 const articleElem = document.createElement('article');
-const dogContainerElem = document.getElementById('dogOne');
+const dogContainerElem = document.getElementById('dogMatches');
 const tableElem = document.createElement('table'); // create table at container
 dogContainerElem.appendChild(tableElem);
 
-// add article element and append to container IF the location container "dogOneContainerElement" exists in the HTML
+// add article element and append to container IF the location container "dogMatches ContainerElement" exists in the HTML
 if (dogContainerElem) {
   dogContainerElem.appendChild(articleElem);
   articleElem.classList.add('profile-table');
@@ -689,22 +685,17 @@ function renderMatches() {
   // console.log(availableDogs);
 
   // Log matchedDogsArray
-  console.log(topDogs);
   return topDogs;
 }
-renderMatches();
+// renderMatches();
 
 //////////////////////////////////////////////////////
 ///////////// LOCAL STORAGE ////////////////////////
 ////////////////////////////////////////////////////
 
-const userStorageKey = 'userKey';
+
 const matchKey = 'matchKey';
 
-// function saveNewUsers() {
-//   const userStorageText = JSON.stringify(newUserDogs); // convert array to string
-//   localStorage.setItem(userStorageKey, userStorageText); // set value
-// }
 
 function saveTopDogs() {
   // const topDogs = renderMatches();
@@ -712,60 +703,3 @@ function saveTopDogs() {
   localStorage.setItem(matchKey, matchStorageText); // set value
 }
 
-// function parseStorage(storageText) {
-//   // restore from storage
-//   const storedUserObjects = JSON.parse(storageText);
-
-//   console.log(storedUserObjects);
-//   for (let userObject of storedUserObjects) {
-//     let dogName = Object.keys(userObject)[0];
-//     console.log(userObject[dogName].ownerName);
-//     const currentUser = new UserDog(
-//       userObject[dogName].ownerName,
-//       userObject[dogName].ownerEmail,
-//       userObject[dogName].city
-//     );
-//     matchedDogsArray.push(currentUser);
-//   }
-//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);
-
-// }
-
-// function loadTopDogs() {
-//   const matchStorageText = localStorage.getItem(matchKey);
-//   console.log('MATCH STORAGE TEXT: ', matchStorageText);
-//   if (matchStorageText) {
-//     parseStorage(matchStorageText);
-//   } else {
-//     console.log('no stored match data');
-//   }
-// }
-
-// console.log(topDogs);
-
-// function loadUsers() {
-//   const userStorageText = localStorage.getItem(userStorageKey); // access stored user data stored in the saveNewUsers() function
-//   console.log(userStorageText);
-//   if (userStorageText) {
-//     parseStorage(userStorageText); // if there is stored user data, access it and parse it, if not init
-//   } else {
-//     console.log('no stored user data');
-//   }
-// }
-
-// loadTopDogs();
-// loadUsers();
-
-// STATIC user dog - to be updated with object from Form
-// const userDog = new UserDog(
-//   'UserDog',
-//   'friendly',
-//   'high',
-//   'fetch',
-//   'medium',
-//   7,
-//   'Australian Shepherd',
-//   true
-// );
-
-// console.log(`user dog: ${JSON.stringify(userDog, null, 2)}`);

@@ -2,7 +2,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 100px;
+    height: 5rem;
     width: 40%;
     margin: auto;
 }
@@ -18,11 +18,8 @@ header, footer {
     background-color: rgb(114, 189, 250); 
     color: black;
     text-align: center;
-    /*display: flex;
-    justify-content: space-between; /* spreads out the nav items */
-    /*align-items: center;*/
     height: 100px; /* Height of the header */
-    padding: 0 10px; /* Padding to the header*/
+    padding: 10px; /* Padding to the header*/
 }
 
 html, body {
@@ -31,15 +28,12 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between; */
-    /*don't know if need two lines above */
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 header img {
     float: left;
-    display: inline-block;
-    height: auto;
-    width: auto;
-    max-height: 170px;
-    padding-right: 10px;
+    max-height: 6rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
 }

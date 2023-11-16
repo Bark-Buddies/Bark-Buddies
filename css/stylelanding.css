@@ -5,6 +5,7 @@
 h1 {
     padding-top: 20px;
     font-size: 80px;
+    font-family: 'Righteous', sans-serif;
 }
 
 
@@ -22,6 +23,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .slideshow-container {
@@ -55,3 +57,13 @@ p {
 .text-container p {
     font-size: 30px;
 }
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
