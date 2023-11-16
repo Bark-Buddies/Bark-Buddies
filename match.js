@@ -444,13 +444,13 @@ form?.addEventListener('submit', function (event) {
   // Render matches after calculating match scores
   topDogs = renderMatches();
   saveTopDogs();
-  
-    // Check if the table has not been rendered yet
-  if(!tableRendered) {
+
+  // Check if the table has not been rendered yet
+  if (!tableRendered) {
     renderOnScreen(topDogs); // Render the table only if it hasn't been rendered before
     tableRendered = true; // Set the flag to true after rendering the table
   }
-  
+
 });
 
 function renderOnScreen(topDogsData) {
@@ -486,6 +486,10 @@ function renderOnScreen(topDogsData) {
   let dog2Array = bothDogsArray.slice(midIndex, length - 1);
 
   ////// RENDER TABLE /////////////////////////////////
+
+
+
+  renderHeader();
 
   // add tbody element
   const tableBodyElem = document.createElement('tbody');
@@ -524,14 +528,26 @@ function renderOnScreen(topDogsData) {
   const activityLevelCell = document.createElement('td');
   dataRow1.appendChild(activityLevelCell);
   activityLevelCell.textContent = dog1Array[5]; // activity level
-  
+
   const favoriteActvityCell = document.createElement('td');
   dataRow1.appendChild(favoriteActvityCell);
   favoriteActvityCell.textContent = dog1Array[6]; // favorite activity
 
+  const button = document.createElement('button');
+  dataRow1.appendChild(button);
+
+  // Set the email address as the text content of the button
+  const emailAddressOne = dog1Array[7];
+  button.textContent = 'Contact Me!';
+
   const ownerContactCell = document.createElement('td');
   dataRow1.appendChild(ownerContactCell);
-  ownerContactCell.textContent = dog1Array[7]; // owner contact
+  // ownerContactCell.textContent = emailAddressOne; // owner contact, dont need?
+
+  // Add a click event listener to open the default email client when the button is clicked
+  button.addEventListener('click', function () {
+    window.location.href = 'mailto:' + emailAddressOne;
+  });
 
   // MATCH 2
 
@@ -641,9 +657,6 @@ function renderHeader() {
   ownerContactHeaderCell.textContent = 'Owner Contact';
 }
 
-if (dogContainerElem) {
-  renderHeader();
-}
 
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////

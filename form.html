@@ -22,7 +22,7 @@
     </header>
     <main>
         <h1>Registration Form</h1>
-        <form id="regForm">
+        <form id="regForm" onsubmit="hideForm(event)">
             <!-- First Row Owner Information Section -->
             <fieldset class="form-section">
                 <legend>Owner Information</legend>
@@ -217,7 +217,7 @@
             </fieldset>
             <!-- submit button -->
             <div class="form-row">
-                <button type="submit">Submit</button>
+                <button type="submit" value="submit">Submit</button>
             </div>
         </form>
         <article id="dogOne"></article>
@@ -225,7 +225,15 @@
     </main>
 
     <footer>&copy;2023</footer>
+    <script>
+        function hideForm(event) {
+            event.preventDefault();
 
+            document.getElementById('regForm').style.display = 'none';
+
+            console.log('formSubmitted');
+        }
+    </script>
     <script src="match.js"></script>
 </body>
 
