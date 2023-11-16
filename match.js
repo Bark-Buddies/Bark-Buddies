@@ -511,7 +511,27 @@ function renderOnScreen(topDogsData) {
 
   const dog1BreedCell = document.createElement('td');
   dataRow1.appendChild(dog1BreedCell);
-  dog1BreedCell.textContent = dog1Array[2]; // dog breed
+  dog1BreedCell.textContent = dog1Array[2]; // dog 1 breed
+
+  const dogAgeCell = document.createElement('td');
+  dataRow1.appendChild(dogAgeCell);
+  dogAgeCell.textContent = dog1Array[3]; // dog age
+
+  const breedSizeCell = document.createElement('td');
+  dataRow1.appendChild(breedSizeCell);
+  breedSizeCell.textContent = dog1Array[4]; // breed size
+
+  const activityLevelCell = document.createElement('td');
+  dataRow1.appendChild(activityLevelCell);
+  activityLevelCell.textContent = dog1Array[5]; // activity level
+  
+  const favoriteActvityCell = document.createElement('td');
+  dataRow1.appendChild(favoriteActvityCell);
+  favoriteActvityCell.textContent = dog1Array[6]; // favorite activity
+
+  const ownerContactCell = document.createElement('td');
+  dataRow1.appendChild(ownerContactCell);
+  ownerContactCell.textContent = dog1Array[7]; // owner contact
 
   // MATCH 2
 
