@@ -445,25 +445,26 @@ form?.addEventListener('submit', function (event) {
   saveTopDogs();
   // loadTopDogs();
   renderOnScreen(topDogs);
+  event.preventDefault();
 });
-
 
 function renderOnScreen(topDogsData) {
   console.log(topDogsData);
   let bothDogsArray = [];
   for (let dogObj of topDogsData) {
     let dogName = Object.keys(dogObj)[0];
-    bothDogsArray.push(dogObj[dogName].ownerName);
-    bothDogsArray.push(dogObj[dogName].ownerEmail);
+    bothDogsArray.push(dogObj[dogName].ownerName); // index 0
+    bothDogsArray.push(dogObj[dogName].dogName); // 1
+    bothDogsArray.push(dogObj[dogName].breed1); // 2
+    bothDogsArray.push(dogObj[dogName].dogAge); // 3
+    bothDogsArray.push(dogObj[dogName].dogSize); // 4
+    bothDogsArray.push(dogObj[dogName].activityLevel); // 5
+    bothDogsArray.push(dogObj[dogName].favActivity); // 6
+    bothDogsArray.push(dogObj[dogName].ownerEmail); // 7
     bothDogsArray.push(dogObj[dogName].state);
     bothDogsArray.push(dogObj[dogName].zip);
-    bothDogsArray.push(dogObj[dogName].dogName);
-    bothDogsArray.push(dogObj[dogName].breed1);
     bothDogsArray.push(dogObj[dogName].breed2);
-    bothDogsArray.push(dogObj[dogName].dogAge);
     bothDogsArray.push(dogObj[dogName].temperament);
-    bothDogsArray.push(dogObj[dogName].dogSize);
-    bothDogsArray.push(dogObj[dogName].activityLevel);
     bothDogsArray.push(dogObj[dogName].special);
     bothDogsArray.push(dogObj[dogName].fixed);
     bothDogsArray.push(dogObj[dogName].vax);
@@ -473,22 +474,123 @@ function renderOnScreen(topDogsData) {
     bothDogsArray.push(dogObj[dogName].femHumans);
     bothDogsArray.push(dogObj[dogName].service);
   }
-  console.log(bothDogsArray);
+
   let length = bothDogsArray.length;
   let midIndex = length / 2;
   let dog1Array = bothDogsArray.slice(0, midIndex);
   let dog2Array = bothDogsArray.slice(midIndex, length - 1);
 
-
   ////// RENDER TABLE /////////////////////////////////
+
+  // add tbody element
+  const tableBodyElem = document.createElement('tbody');
+  tableElem.appendChild(tableBodyElem);
+
+  // add data row
+  const dataRow1 = document.createElement('tr');
+  tableBodyElem.appendChild(dataRow1);
+
+  const matchNumberCell = document.createElement('td');
+  dataRow1.appendChild(matchNumberCell);
+  matchNumberCell.textContent = 'Match 1';
+
+  // MATCH 1 DATA
+
+  const ownerNameCell1 = document.createElement('td');
+  dataRow1.appendChild(ownerNameCell1);
+  ownerNameCell1.textContent = dog1Array[0]; // owner name
+
+  const dog1NameCell = document.createElement('td');
+  dataRow1.appendChild(dog1NameCell);
+  dog1NameCell.textContent = dog1Array[1]; // dog name
+
+  // MATCH 2
+
+  // add data row
+  const dataRow2 = document.createElement('tr');
+  tableBodyElem.appendChild(dataRow2);
+
+  const match2NumberCell = document.createElement('td');
+  dataRow2.appendChild(match2NumberCell);
+  match2NumberCell.textContent = 'Match 2';
+
+  const ownerNameCell2 = document.createElement('td');
+  dataRow2.appendChild(ownerNameCell2);
+  ownerNameCell2.textContent = dog2Array[0];
+
+  const dog2NameCell = document.createElement('td');
+  dataRow2.appendChild(ownerNameCell2);
+  dog2NameCell.textContent = dog2Array[5]; // dog name
+
   console.log(dog1Array);
-  console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName, 1 is ownerEmail, etc.
+  console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName
   console.log(dog2Array);
-
-
-
 }
 
+// global reference to container referenced by DOM
+const articleElem = document.createElement('article');
+const dogContainerElem = document.getElementById('dogOne');
+const tableElem = document.createElement('table'); // create table at container
+dogContainerElem.appendChild(tableElem);
+
+// add article element and append to container IF the location container "dogOneContainerElement" exists in the HTML
+if (dogContainerElem) {
+  dogContainerElem.appendChild(articleElem);
+  articleElem.classList.add('profile-table');
+  // initiate the table and append to the article
+  articleElem.appendChild(tableElem);
+}
+
+function renderHeader() {
+  // add table head
+  const tableHeadElem = document.createElement('thead');
+  tableElem.appendChild(tableHeadElem);
+
+  // add header Row
+  const headerRow = document.createElement('tr');
+  tableHeadElem.appendChild(headerRow);
+
+  const matchHeadingCell = document.createElement('th');
+  headerRow.appendChild(matchHeadingCell);
+  matchHeadingCell.textContent = 'Match #';
+
+  // add header cells
+  const ownerNameHeaderCell = document.createElement('th');
+  headerRow.appendChild(ownerNameHeaderCell);
+  ownerNameHeaderCell.textContent = 'Owner Name';
+
+  const dogNameHeaderCell = document.createElement('th');
+  headerRow.appendChild(dogNameHeaderCell);
+  dogNameHeaderCell.textContent = 'Dog Name';
+
+  const dogBreedHeaderCell = document.createElement('th');
+  headerRow.appendChild(dogBreedHeaderCell);
+  dogBreedHeaderCell.textContent = 'Dog Breed';
+
+  const dogAgeHeaderCell = document.createElement('th');
+  headerRow.appendChild(dogAgeHeaderCell);
+  dogAgeHeaderCell.textContent = 'Dog Age';
+
+  const dogSizeHeaderCell = document.createElement('th');
+  headerRow.appendChild(dogSizeHeaderCell);
+  dogSizeHeaderCell.textContent = 'Breed Size';
+
+  const activityLevelHeaderCell = document.createElement('th');
+  headerRow.appendChild(activityLevelHeaderCell);
+  activityLevelHeaderCell.textContent = 'Activity Level';
+
+  const favActivityHeaderCell = document.createElement('th');
+  headerRow.appendChild(favActivityHeaderCell);
+  favActivityHeaderCell.textContent = 'Favorite Activity';
+
+  const ownerContactHeaderCell = document.createElement('th');
+  headerRow.appendChild(ownerContactHeaderCell);
+  ownerContactHeaderCell.textContent = 'Owner Contact';
+}
+
+if (dogContainerElem) {
+  renderHeader();
+}
 
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
