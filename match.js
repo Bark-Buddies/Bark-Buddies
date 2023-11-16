@@ -400,6 +400,7 @@ initDogs();
 
 let form = document.querySelector('form');
 let formData = {};
+let tableRendered = false;
 
 form?.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -443,9 +444,13 @@ form?.addEventListener('submit', function (event) {
   // Render matches after calculating match scores
   topDogs = renderMatches();
   saveTopDogs();
-  // loadTopDogs();
-  renderOnScreen(topDogs);
-  event.preventDefault();
+  
+    // Check if the table has not been rendered yet
+  if(!tableRendered) {
+    renderOnScreen(topDogs); // Render the table only if it hasn't been rendered before
+    tableRendered = true; // Set the flag to true after rendering the table
+  }
+  
 });
 
 function renderOnScreen(topDogsData) {
@@ -504,6 +509,10 @@ function renderOnScreen(topDogsData) {
   dataRow1.appendChild(dog1NameCell);
   dog1NameCell.textContent = dog1Array[1]; // dog name
 
+  const dog1BreedCell = document.createElement('td');
+  dataRow1.appendChild(dog1BreedCell);
+  dog1BreedCell.textContent = dog1Array[2]; // dog breed
+
   // MATCH 2
 
   // add data row
@@ -520,7 +529,7 @@ function renderOnScreen(topDogsData) {
 
   const dog2NameCell = document.createElement('td');
   dataRow2.appendChild(ownerNameCell2);
-  dog2NameCell.textContent = dog2Array[5]; // dog name
+  dog2NameCell.textContent = dog2Array[1]; // dog name
 
   console.log(dog1Array);
   console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName
