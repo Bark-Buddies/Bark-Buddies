@@ -1,45 +1,12 @@
 /* This is the CSS file for the landing page */
 
-html, body {
-    background-color: rgb(208,208,208);
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    /*justify-content: space-between; */
-    /*don't know if need two lines above */
-}
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 100px;
-    width: 40%;
-    margin: auto;
-}
-
-header img {
-    float: left;
-    display: inline-block;
-    height: auto;
-    width: auto;
-    max-height: 170px;
-    padding-right: 10px;
-}
 
 h1 {
     padding-top: 20px;
     font-size: 80px;
 }
 
-/* See if we want to keep this in here, deleting this makes it look more like what we have on invision */
-/* main {
-    width: 1500px;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-} */
 
 .slideshow-container {
     width: 60%;
@@ -48,11 +15,6 @@ h1 {
     flex-direction: column;
     justify-content: center;
 }
-
-/* nav {
-    text-align: center;
-    justify-content: space-evenly;
-} */
 
 main {
     background-color: rgb(208,208,208);
@@ -76,41 +38,9 @@ p {
     font-size: 25px;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Adjusts height */
-}
-
-header, footer {
-    background-color: rgb(114, 189, 250); 
-    color: black;
-    text-align: center;
-    /*display: flex;
-    justify-content: space-between; /* spreads out the nav items */
-    /*align-items: center;*/
-    height: 100px; /* Height of the header */
-    padding: 0 10px; /* Padding to the header*/
-}
-
-nav a {
-    font-size: 25px; /* Adjusts font size in nav bar */
-    color: black;
-    text-decoration: none;
-    margin: 0 10px; /* Margin to space out nav items */
-}
-
 .slideshow-container, .callToAction, p {
     margin: 30px;
     text-align: center;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75px; /* Adjusts height */
 }
 
 /* Code for paragraph */
