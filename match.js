@@ -274,7 +274,7 @@ class AvailableDogs {
 
   // Match Score Calculation
   calcMatchScore(userDog) {
-    console.log('Matching', this.dogName, 'with', userDog.dogName);
+    // console.log('Matching', this.dogName, 'with', userDog.dogName);
     if (this.city === userDog.city || this.zip === userDog.zip) {
       if (this.temperament === userDog.temperament) {
         this.matchScore += 5;
@@ -313,7 +313,7 @@ class AvailableDogs {
           matchScore: this.matchScore,
         });
       }
-      console.log('Matched Dogs Array:', matchedDogsArray);
+      // console.log('Matched Dogs Array:', matchedDogsArray);
 
       return this.matchScore;
     } else {
@@ -444,34 +444,54 @@ form?.addEventListener('submit', function (event) {
   topDogs = renderMatches();
   saveTopDogs();
   // loadTopDogs();
-  prepareDataForRender(topDogs);
-  renderOnScreen();
+  renderOnScreen(topDogs);
 });
 
-function prepareDataForRender(topDogsData) {
+let bothDogsArray = [];
+let dog1Array = [];
+let dog2Array = [];
+
+function renderOnScreen(topDogsData) {
   console.log(topDogsData);
   let bothDogsArray = [];
   for (let dogObj of topDogsData) {
     let dogName = Object.keys(dogObj)[0];
     bothDogsArray.push(dogObj[dogName].ownerName);
     bothDogsArray.push(dogObj[dogName].ownerEmail);
-    bothDogsArray.push(dogObj[dogName].city);
+    bothDogsArray.push(dogObj[dogName].state);
+    bothDogsArray.push(dogObj[dogName].zip);
+    bothDogsArray.push(dogObj[dogName].dogName);
+    bothDogsArray.push(dogObj[dogName].breed1);
+    bothDogsArray.push(dogObj[dogName].breed2);
+    bothDogsArray.push(dogObj[dogName].dogAge);
+    bothDogsArray.push(dogObj[dogName].temperament);
+    bothDogsArray.push(dogObj[dogName].dogSize);
+    bothDogsArray.push(dogObj[dogName].activityLevel);
+    bothDogsArray.push(dogObj[dogName].special);
+    bothDogsArray.push(dogObj[dogName].fixed);
+    bothDogsArray.push(dogObj[dogName].vax);
+    bothDogsArray.push(dogObj[dogName].maleDogs);
+    bothDogsArray.push(dogObj[dogName].femDogs);
+    bothDogsArray.push(dogObj[dogName].maleHumans);
+    bothDogsArray.push(dogObj[dogName].femHumans);
+    bothDogsArray.push(dogObj[dogName].service);
   }
   console.log(bothDogsArray);
   let length = bothDogsArray.length;
   let midIndex = length / 2;
   let dog1Array = bothDogsArray.slice(0, midIndex);
+  let dog2Array = bothDogsArray.slice(midIndex, length - 1);
+
+
+  ////// RENDER TABLE /////////////////////////////////
   console.log(dog1Array);
-  // for (let i = 0; i < topDogsData.length; i++) {
-  //   let dogName = Object.keys(topDogsData[i])[0];
-  //   console.log(dogName.);
-  // }
+  console.log(dog1Array[0]); // access each item in the array that you want to render by using bracket notation. position 0 is ownerName, 1 is ownerEmail, etc.
+  console.log(dog2Array);
+
+
+
 }
 
-function renderOnScreen () {
-  /// RENDER FUNCTION TO BUILD TABLES currently being called in the above event listener
-  /// BUILD OUT TABLE HERE
-}
 
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
@@ -484,7 +504,7 @@ function renderMatches() {
   // Take the top 2 dogs
   const topDogs = matchedDogsArray.slice(0, 2);
 
-  console.log('Top Dogs with the highest matchScore:', topDogs);
+  // console.log('Top Dogs with the highest matchScore:', topDogs);
   // console.log(availableDogs);
 
   // Log matchedDogsArray
