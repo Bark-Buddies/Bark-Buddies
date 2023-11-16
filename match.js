@@ -196,21 +196,21 @@ class UserDog {
     femHumans,
     service,
   }) {
-    this.ownerName = ownerName || "test";
-    this.ownerEmail = ownerEmail || "test@test.com";
-    this.city = city || "Seattle";
-    this.state = state || "WA";
-    this.zip = zip || "98101";
-    this.dogName = dogName || "Torrey";
+    this.ownerName = ownerName || 'test';
+    this.ownerEmail = ownerEmail || 'test@test.com';
+    this.city = city || 'Seattle';
+    this.state = state || 'WA';
+    this.zip = zip || '98101';
+    this.dogName = dogName || 'Torrey';
     this.breed1 = breed1;
     this.breed2 = breed2;
     this.dogAge = dogAge || 2;
-    this.temperament = temperament || "energetic";
-    this.dogSize = dogSize || "med";
-    this.activityLevel = activityLevel ||"high";
+    this.temperament = temperament || 'energetic';
+    this.dogSize = dogSize || 'med';
+    this.activityLevel = activityLevel || 'high';
     this.special = special;
     this.fixed = fixed || true;
-    this.favActivity = favActivity || "chase";
+    this.favActivity = favActivity || 'chase';
     this.vax = vax || true;
     this.maleDogs = maleDogs || true;
     this.femDogs = femDogs || true;
@@ -444,33 +444,35 @@ form?.addEventListener('submit', function (event) {
   topDogs = renderMatches();
   saveTopDogs();
   // loadTopDogs();
-  renderOnScreen(topDogs);
+  prepareDataForRender(topDogs);
+  renderOnScreen();
 });
 
-function renderOnScreen(topDogsData) {
-console.log(topDogsData);
-for (let dogObj of topDogsData) {
-  let dogName = Object.keys(dogObj)[0];
-  console.log(dogObj[dogName].ownerName);
-}
+function prepareDataForRender(topDogsData) {
+  console.log(topDogsData);
+  let bothDogsArray = [];
+  for (let dogObj of topDogsData) {
+    let dogName = Object.keys(dogObj)[0];
+    bothDogsArray.push(dogObj[dogName].ownerName);
+    bothDogsArray.push(dogObj[dogName].ownerEmail);
+    bothDogsArray.push(dogObj[dogName].city);
+  }
+  console.log(bothDogsArray);
+  let length = bothDogsArray.length;
+  let midIndex = length / 2;
+  let dog1Array = bothDogsArray.slice(0, midIndex);
+  console.log(dog1Array);
+  // for (let i = 0; i < topDogsData.length; i++) {
+  //   let dogName = Object.keys(topDogsData[i])[0];
+  //   console.log(dogName.);
+  // }
 }
 
-// function parseStorage(storageText) {
-//   // restore from storage
-//   const storedUserObjects = JSON.parse(storageText);
+function renderOnScreen () {
+  /// RENDER FUNCTION TO BUILD TABLES currently being called in the above event listener
+  /// BUILD OUT TABLE HERE
+}
 
-//   console.log(storedUserObjects);
-//   for (let userObject of storedUserObjects) {
-//     let dogName = Object.keys(userObject)[0];
-//     console.log(userObject[dogName].ownerName);
-//     const currentUser = new UserDog(
-//       userObject[dogName].ownerName,
-//       userObject[dogName].ownerEmail,
-//       userObject[dogName].city
-//     );
-//     matchedDogsArray.push(currentUser);
-//   }
-//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);  
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
 ////////////////////////////////////////////////////
@@ -524,8 +526,8 @@ function saveTopDogs() {
 //     );
 //     matchedDogsArray.push(currentUser);
 //   }
-//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);  
-  
+//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);
+
 // }
 
 // function loadTopDogs() {
