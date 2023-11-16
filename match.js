@@ -2,6 +2,7 @@
 const availableDogs = []; // Array to store created dogs instances
 const newUserDogs = []; // Array to store UserDog instances
 const matchedDogsArray = [];
+// let topDogs = [];
 ////////////////////////////////
 //// CREATE DOG DATA //////////
 ///////////////////////////////
@@ -195,26 +196,26 @@ class UserDog {
     femHumans,
     service,
   }) {
-    this.ownerName = ownerName;
-    this.ownerEmail = ownerEmail;
-    this.city = city;
-    this.state = state;
-    this.zip = zip;
-    this.dogName = dogName;
+    this.ownerName = ownerName || "test";
+    this.ownerEmail = ownerEmail || "test@test.com";
+    this.city = city || "Seattle";
+    this.state = state || "WA";
+    this.zip = zip || "98101";
+    this.dogName = dogName || "Torrey";
     this.breed1 = breed1;
     this.breed2 = breed2;
-    this.dogAge = dogAge;
-    this.temperament = temperament;
-    this.dogSize = dogSize;
-    this.activityLevel = activityLevel;
+    this.dogAge = dogAge || 2;
+    this.temperament = temperament || "energetic";
+    this.dogSize = dogSize || "med";
+    this.activityLevel = activityLevel ||"high";
     this.special = special;
-    this.fixed = fixed;
-    this.favActivity = favActivity;
-    this.vax = vax;
-    this.maleDogs = maleDogs;
-    this.femDogs = femDogs;
-    this.maleHumans = maleHumans;
-    this.femHumans = femHumans;
+    this.fixed = fixed || true;
+    this.favActivity = favActivity || "chase";
+    this.vax = vax || true;
+    this.maleDogs = maleDogs || true;
+    this.femDogs = femDogs || true;
+    this.maleHumans = maleHumans || false;
+    this.femHumans = femHumans || false;
     this.service = service;
   }
 }
@@ -301,21 +302,19 @@ class AvailableDogs {
       if (
         this.femHumans === userDog.femHumans ||
         this.maleHumans === userDog.maleHumans
-        ) {
-          this.matchScore += 2;
-        }
-        if (this.matchScore > 5) {
-         
-         
-          // Push the dogs with a match score over 15 to a specific array
-          matchedDogsArray.push({
-            dog1: this,
-            
-            matchScore: this.matchScore,
-          });
-        }
-        console.log('Matched Dogs Array:', matchedDogsArray);
-    
+      ) {
+        this.matchScore += 2;
+      }
+      if (this.matchScore > 0) {
+        // Push the dogs with a match score over 15 to a specific array
+        matchedDogsArray.push({
+          [this.dogName]: this,
+
+          matchScore: this.matchScore,
+        });
+      }
+      console.log('Matched Dogs Array:', matchedDogsArray);
+
       return this.matchScore;
     } else {
       console.log('no match available in your area');
@@ -339,8 +338,7 @@ function difference(a, b) {
   return Math.abs(a - b);
 }
 
-const randomBoolean = () => Math.random() >= 0.8; // 50% probability of getting true
-
+const randomBoolean = () => Math.random() >= 0.5; // 50% probability of getting true
 
 // EXISTING DOG DATA CREATION //////
 
@@ -353,12 +351,12 @@ function initDogs() {
   let shuffledDogAges = shuffleArray(dogAges);
   let shuffledBreeds = shuffleArray(dogBreeds);
   let shuffledHumans = shuffleArray(humanNames);
-  let randomFixed = randomBoolean();
-  let randomFemDogs = randomBoolean();
-  let randomMaleDogs = randomBoolean();
-  let randomFemHumans = randomBoolean();
-  let randomMaleHumans = randomBoolean();
-  let randomVax = randomBoolean();
+  // let randomFixed = randomBoolean();
+  // let randomFemDogs = randomBoolean();
+  // let randomMaleDogs = randomBoolean();
+  // let randomFemHumans = randomBoolean();
+  // let randomMaleHumans = randomBoolean();
+  // let randomVax = randomBoolean();
 
   // Calculate the maximum length of arrays
   const maxLength = Math.max(
@@ -385,19 +383,18 @@ function initDogs() {
       shuffledBreeds[i % shuffledBreeds.length],
       shuffledHumans[i % shuffledHumans.length],
       `${shuffledHumans[i % shuffledHumans.length]}@gmail.com`,
-      randomFixed, // fixed
-      randomFemDogs, // femDogs
-      randomMaleDogs, // maleDogs
-      randomFemHumans, // femHumans
-      randomMaleHumans, // maleHumans
-      randomVax // vax
+      randomBoolean(), // fixed
+      randomBoolean(), // femDogs
+      randomBoolean(), // maleDogs
+      randomBoolean(), // femHumans
+      randomBoolean(), // maleHumans
+      randomBoolean() // vax
     );
     availableDogs.push(dogInstance);
   }
 }
 
 initDogs();
-
 
 /// USER INPUT HANDLING //////////////
 
@@ -444,14 +441,39 @@ form?.addEventListener('submit', function (event) {
   }
 
   // Render matches after calculating match scores
-  renderMatches();
+  topDogs = renderMatches();
+  saveTopDogs();
+  // loadTopDogs();
+  renderOnScreen(topDogs);
 });
 
+function renderOnScreen(topDogsData) {
+console.log(topDogsData);
+for (let dogObj of topDogsData) {
+  let dogName = Object.keys(dogObj)[0];
+  console.log(dogObj[dogName].ownerName);
+}
+}
 
+// function parseStorage(storageText) {
+//   // restore from storage
+//   const storedUserObjects = JSON.parse(storageText);
+
+//   console.log(storedUserObjects);
+//   for (let userObject of storedUserObjects) {
+//     let dogName = Object.keys(userObject)[0];
+//     console.log(userObject[dogName].ownerName);
+//     const currentUser = new UserDog(
+//       userObject[dogName].ownerName,
+//       userObject[dogName].ownerEmail,
+//       userObject[dogName].city
+//     );
+//     matchedDogsArray.push(currentUser);
+//   }
+//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);  
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
 ////////////////////////////////////////////////////
-
 
 function renderMatches() {
   // Sort the availableDogs array by matchScore in descending order
@@ -463,7 +485,8 @@ function renderMatches() {
   console.log('Top Dogs with the highest matchScore:', topDogs);
   // console.log(availableDogs);
 
-    // Log matchedDogsArray
+  // Log matchedDogsArray
+  console.log(topDogs);
   return topDogs;
 }
 renderMatches();
@@ -473,41 +496,62 @@ renderMatches();
 ////////////////////////////////////////////////////
 
 const userStorageKey = 'userKey';
+const matchKey = 'matchKey';
 
-function saveNewUsers() {
-  const userStorageText = JSON.stringify(newUserDogs); // convert array to string
-  localStorage.setItem(userStorageKey, userStorageText); // set value
+// function saveNewUsers() {
+//   const userStorageText = JSON.stringify(newUserDogs); // convert array to string
+//   localStorage.setItem(userStorageKey, userStorageText); // set value
+// }
+
+function saveTopDogs() {
+  // const topDogs = renderMatches();
+  const matchStorageText = JSON.stringify(topDogs); // convert array to string
+  localStorage.setItem(matchKey, matchStorageText); // set value
 }
 
-function parseStoredUsers(storageText) {
-  // restore from storage
-  const storedUserObjects = JSON.parse(storageText);
+// function parseStorage(storageText) {
+//   // restore from storage
+//   const storedUserObjects = JSON.parse(storageText);
 
-  availableDogs.length = 0;
+//   console.log(storedUserObjects);
+//   for (let userObject of storedUserObjects) {
+//     let dogName = Object.keys(userObject)[0];
+//     console.log(userObject[dogName].ownerName);
+//     const currentUser = new UserDog(
+//       userObject[dogName].ownerName,
+//       userObject[dogName].ownerEmail,
+//       userObject[dogName].city
+//     );
+//     matchedDogsArray.push(currentUser);
+//   }
+//   console.log("STORED MATCHED DOGS ARRAY:", matchedDogsArray);  
+  
+// }
 
-  for (let userObject of storedUserObjects) {
-    const currentUser = new UserDog(
-      userObject.ownerName,
-      userObject.ownerEmail,
-      userObject.city
-    );
-    matchedDogsArray.push(currentUser);
-  }
-  console.log(availableDogs);
-}
+// function loadTopDogs() {
+//   const matchStorageText = localStorage.getItem(matchKey);
+//   console.log('MATCH STORAGE TEXT: ', matchStorageText);
+//   if (matchStorageText) {
+//     parseStorage(matchStorageText);
+//   } else {
+//     console.log('no stored match data');
+//   }
+// }
 
-function loadUsers() {
-  const userStorageText = localStorage.getItem(userStorageKey); // access stored user data stored in the saveNewUsers() function
-  console.log(userStorageText);
-  if (userStorageText) {
-    parseStoredUsers(userStorageText); // if there is stored user data, access it and parse it, if not init
-  } else {
-    console.log('no stored user data');
-  }
-}
+// console.log(topDogs);
 
+// function loadUsers() {
+//   const userStorageText = localStorage.getItem(userStorageKey); // access stored user data stored in the saveNewUsers() function
+//   console.log(userStorageText);
+//   if (userStorageText) {
+//     parseStorage(userStorageText); // if there is stored user data, access it and parse it, if not init
+//   } else {
+//     console.log('no stored user data');
+//   }
+// }
+
+// loadTopDogs();
 // loadUsers();
-
 
 // STATIC user dog - to be updated with object from Form
 // const userDog = new UserDog(
@@ -522,4 +566,3 @@ function loadUsers() {
 // );
 
 // console.log(`user dog: ${JSON.stringify(userDog, null, 2)}`);
-
