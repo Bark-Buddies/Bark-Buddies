@@ -447,9 +447,6 @@ form?.addEventListener('submit', function (event) {
   renderOnScreen(topDogs);
 });
 
-let bothDogsArray = [];
-let dog1Array = [];
-let dog2Array = [];
 
 function renderOnScreen(topDogsData) {
   console.log(topDogsData);
