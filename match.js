@@ -523,23 +523,3 @@ function loadUsers() {
 
 // console.log(`user dog: ${JSON.stringify(userDog, null, 2)}`);
 
-// function populateTable(dogData) {
-//   const table = document.getElementById('dogTable');
-//   const row = table.insertRow(-1); 
-//   const staticData = {
-//     ownerName: 'Your Name', 
-//     dogName: 'Lulu', 
-//     dogAge: 7 
-//   };
-
-
-//   const rowData = { ...staticData, ...dogData };
-
-  
-//   Object.values(rowData).forEach(text => {
-//     const cell = row.insertCell(-1); 
-//     cell.textContent = text; 
-//   });
-// }
-
-// populateTable(topDog);
