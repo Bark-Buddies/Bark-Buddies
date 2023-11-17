@@ -4,22 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/nav.css">
     <title>Form</title>
 </head>
 
 <body>
     <header>
+        <img src="Images/barklogo1.png" alt="logo" />
         <nav>
-            <img class="logo" src="Img/barklogo1.png" alt="logo">
             <a href="index.html">Home</a>
-            <!-- <a href="http://">Form</a> -->
+            <a href="form.html">Sign Up!</a>
         </nav>
     </header>
     <main>
-        <h1>Registration Form</h1>
-        <form>
+        <h1 id="mainHeader">Registration Form</h1>
+        <form id="regForm" onsubmit="hideForm(event)">
             <!-- First Row Owner Information Section -->
             <fieldset class="form-section">
                 <legend>Owner Information</legend>
@@ -33,6 +38,8 @@
                     <label for="state">State:</label>
                     <select id="state" name="state">
                         <option value="WA">WA</option>
+                        <option value="CA">CA</option>
+                        <option value="TX">TX</option>
                     </select>
                     <label for="zip">Zip Code:</label>
                     <input type="text" id="zip" name="zip" placeholder="Zip Code">
@@ -183,45 +190,57 @@
 
                 </div>
             </fieldset>
-
-            <!-- 5th row Checkboxes -->
+            <!--  ADDITIONAL INFO check boxes-->
             <fieldset class="form-section">
                 <legend>Additional Information:</legend>
-                <div class="form-row">
+                <div class="last-row">
                     <h5>vaccinations up to date?</h5>
                     <label id="vax"><input type="checkbox" class="vaccinations">Check for Yes</label>
+                </div>
 
-
+                <div class="last-row">
                     <h5>Gets along with male Dogs?</h5>
                     <label id="maleDogs"><input type="checkbox" class="maleDogs">Check for Yes</label>
+                </div>
 
+                <div class="last-row">
                     <h5>Gets along with female Dogs?</h5>
                     <label id="femDogs"><input type="checkbox" class="femaleDogs">Check for Yes</label>
+                </div>
 
-
-
+                <div class="last-row">
                     <h5>Gets along with male People?</h5>
                     <label id="maleHumans"><input type="checkbox" class="malePeople">Check for Yes</label>
-
+                </div>
+                <div class="last-row">
                     <h5>Gets along with female People?</h5>
                     <label id="femHumans"><input type="checkbox" class="femalePeople">Check for Yes</label>
-
+                </div>
+                <div class="last-row">
 
                     <h5>Service Dog?</h5>
                     <label id="service"><input type="checkbox" class="serviceDog">Check for Yes</label>
-
+                </div>
                 </div>
             </fieldset>
             <!-- submit button -->
-            <div class="form-row">
-                <button type="submit">Submit</button>
+            <div id="submit-button-div">
+                <button type="submit" value="submit">Submit</button>
             </div>
         </form>
+        <article id="dogMatches"></article>
     </main>
+    <script>
+        function hideForm(event) {
+            event.preventDefault();
 
-    <footer>&copy;2023</footer>
+            document.getElementById('regForm').style.display = 'none';
 
+            console.log('formSubmitted');
+        }
+    </script>
     <script src="match.js"></script>
+    <footer>&copy;2023</footer>
 </body>
 
 </html>
