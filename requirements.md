@@ -23,17 +23,16 @@ These should be features that you will make very clear from the beginning that y
 - Data store of fictitious users that have already signed up to match with
 - User input form for collecting owner's info and dog'ss info, dropdown menus and check boxes
 - Contact method for users to be able to contact owner of matched dog
-- Map display of dog parks in the matched users' area
 - Match algorithm that produces match for the user's dog based on criteria (e.g., location, size, activity level)
 - Page displaying the match and the location of dog park's nearby
 
 ### Stretch Goals
 
-- Create a working messaging system between matches
 - Being able to click on a matches profile and having it bring you to their profile
-- Photo upload by user of their dog's photo
+- Photo upload by user of their dog's photo during registration
 - Adding images of user's submitted dog photo to their profile
 - Google maps API
+- Map display of dog parks in the matched users' area
 - Message functionality in app
 
 ## Functional Requirements
