@@ -2,6 +2,34 @@
 const availableDogs = []; // Array to store created dogs instances
 const newUserDogs = []; // Array to store UserDog instances
 const matchedDogsArray = [];
+
+// Create a myLocation variable
+var zip =  [
+  // Seattle, WA
+  "98101", "98102", "98103", "98104", "98105", "98106", "98107", "98108", "98109", "98112",
+  
+  // Bothell, WA
+  "98011", "98012", "98021",
+  
+  // Redmond, WA
+  "98052", "98053",
+  
+  // Trinity, TX
+  "75862", "77360", "75851", "75845", "75847", "75926", "75856", "75834", "75865",
+  
+  // Coronado, CA
+  "92118", "92155", "92178"
+];
+// Access and manipulate the zipCodes property
+
+var city = [
+  "Seattle",
+  "Bothell",
+  "Redmond",
+  "Trinity",
+  "Coronado"
+];
+
 // let topDogs = [];
 ////////////////////////////////
 //// CREATE DOG DATA //////////
@@ -237,13 +265,13 @@ class AvailableDogs {
     maleDogs,
     femHumans,
     maleHumans,
+    city,
+    zip ,
     vax,
     special = false,
     service = false,
     breed2 = null,
-    city = 'Seattle',
-    state = 'WA',
-    zip = 98101,
+    state ,
     ageDiff = 0,
     matchScore = 0
   ) {
@@ -256,10 +284,8 @@ class AvailableDogs {
     this.breed2 = breed2;
     this.dogAge = dogAge;
     this.dogSize = dogSize;
-    this.special = special;
     this.fixed = fixed;
     this.favActivity = favActivity;
-    this.vax = vax;
     this.service = service;
     this.femDogs = femDogs;
     this.maleDogs = maleDogs;
@@ -268,6 +294,8 @@ class AvailableDogs {
     this.city = city;
     this.state = state;
     this.zip = zip;
+    this.vax = vax;
+    this.special = special;
     this.ageDiff = ageDiff;
     this.matchScore = matchScore;
   }
@@ -351,6 +379,8 @@ function initDogs() {
   let shuffledDogAges = shuffleArray(dogAges);
   let shuffledBreeds = shuffleArray(dogBreeds);
   let shuffledHumans = shuffleArray(humanNames);
+  let shuffledCity = shuffleArray(city);
+  let shuffledZip = shuffleArray(zip);
   // let randomFixed = randomBoolean();
   // let randomFemDogs = randomBoolean();
   // let randomMaleDogs = randomBoolean();
@@ -367,7 +397,10 @@ function initDogs() {
     shuffledDogSizes.length,
     shuffledDogAges.length,
     shuffledBreeds.length,
-    shuffledHumans.length
+    shuffledHumans.length,
+    shuffledCity.length,
+    shuffledZip.length
+
   );
 
   /* modulo operator (%) is used to cycle through the arrays. This way, even if one array runs out of elements, it will start again from the beginning of that array */
@@ -388,6 +421,8 @@ function initDogs() {
       randomBoolean(), // maleDogs
       randomBoolean(), // femHumans
       randomBoolean(), // maleHumans
+      shuffledCity[i % shuffledCity.length],
+      shuffledZip[i % shuffledZip.length],
       randomBoolean() // vax
     );
     availableDogs.push(dogInstance);
