@@ -381,12 +381,6 @@ function initDogs() {
   let shuffledHumans = shuffleArray(humanNames);
   let shuffledCity = shuffleArray(city);
   let shuffledZip = shuffleArray(zip);
-  // let randomFixed = randomBoolean();
-  // let randomFemDogs = randomBoolean();
-  // let randomMaleDogs = randomBoolean();
-  // let randomFemHumans = randomBoolean();
-  // let randomMaleHumans = randomBoolean();
-  // let randomVax = randomBoolean();
 
   // Calculate the maximum length of arrays
   const maxLength = Math.max(
