@@ -46,7 +46,6 @@ var zip = [
 
 var city = ['Seattle', 'Bothell', 'Redmond', 'Trinity', 'Coronado'];
 
-// let topDogs = [];
 ////////////////////////////////
 //// CREATE DOG DATA //////////
 ///////////////////////////////
@@ -352,17 +351,17 @@ class AvailableDogs {
       ) {
         this.matchScore += 2;
       }
-      if (this.matchScore > 0) {
-        // matchedDogsArray.push({...this});
-        console.log('Matched Dogs Array: ', matchedDogsArray);
-      }
+      // if (this.matchScore > 0) {
+      //   // matchedDogsArray.push({...this});
+      //   console.log('Matched Dogs Array: ', matchedDogsArray);
+      // }
       // [this.dogName]: this,
 
       // matchScore: this.matchScore,
 
       // console.log('Matched Dogs Array:', matchedDogsArray);
-
-      return matchedDogsArray.push(this);
+      // return availableDogs.push(this);
+      // return matchedDogsArray.push(this);
     } else {
       console.log('no match available in your area');
     }
@@ -480,8 +479,8 @@ form?.addEventListener('submit', function (event) {
     service: document.getElementById('service').querySelector('input').checked,
   };
 
+  // create newDog from user input in form
   const newDog = new UserDog(formData);
-  newUserDogs.push(newDog);
 
   // Calculate match scores for each AvailableDogs instance
   for (const dog of availableDogs) {
@@ -490,7 +489,15 @@ form?.addEventListener('submit', function (event) {
 
   // Render matches after calculating match scores
   topDogs = renderMatches();
+
+  // save top 2 dogs to local storage
   saveTopDogs(topDogs);
+
+  // push newDog to availableDogs array and add to local storage
+  availableDogs.push(newDog);
+  saveAllDogs(availableDogs);
+  
+ 
 
   // Check if the table has not been rendered yet
   if (!tableRendered) {
@@ -725,22 +732,22 @@ function renderMatches() {
   // Take the top 2 dogs
   const topDogs = availableDogs.slice(0, 2);
 
-  // console.log('Top Dogs with the highest matchScore:', topDogs);
-  // console.log(availableDogs);
-
-  // Log matchedDogsArray
   return topDogs;
 }
-// renderMatches();
 
 //////////////////////////////////////////////////////
 ///////////// LOCAL STORAGE ////////////////////////
 ////////////////////////////////////////////////////
 
 const matchKey = 'matchKey';
+const allDogsKey = 'allDogsKey'
 
 function saveTopDogs(topDogs) {
-  // const topDogs = renderMatches();
   const matchStorageText = JSON.stringify(topDogs); // convert array to string
   localStorage.setItem(matchKey, matchStorageText); // set value
+}
+
+function saveAllDogs(availableDogs) {
+  const allDogsStorageText = JSON.stringify(availableDogs); // convert array to string
+  localStorage.setItem(allDogsKey, allDogsStorageText); // set value
 }
