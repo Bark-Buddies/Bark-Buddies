@@ -4,31 +4,47 @@ const newUserDogs = []; // Array to store UserDog instances
 const matchedDogsArray = [];
 
 // Create a myLocation variable
-var zip =  [
+var zip = [
   // Seattle, WA
-  "98101", "98102", "98103", "98104", "98105", "98106", "98107", "98108", "98109", "98112",
-  
+  '98101',
+  '98102',
+  '98103',
+  '98104',
+  '98105',
+  '98106',
+  '98107',
+  '98108',
+  '98109',
+  '98112',
+
   // Bothell, WA
-  "98011", "98012", "98021",
-  
+  '98011',
+  '98012',
+  '98021',
+
   // Redmond, WA
-  "98052", "98053",
-  
+  '98052',
+  '98053',
+
   // Trinity, TX
-  "75862", "77360", "75851", "75845", "75847", "75926", "75856", "75834", "75865",
-  
+  '75862',
+  '77360',
+  '75851',
+  '75845',
+  '75847',
+  '75926',
+  '75856',
+  '75834',
+  '75865',
+
   // Coronado, CA
-  "92118", "92155", "92178"
+  '92118',
+  '92155',
+  '92178',
 ];
 // Access and manipulate the zipCodes property
 
-var city = [
-  "Seattle",
-  "Bothell",
-  "Redmond",
-  "Trinity",
-  "Coronado"
-];
+var city = ['Seattle', 'Bothell', 'Redmond', 'Trinity', 'Coronado'];
 
 // let topDogs = [];
 ////////////////////////////////
@@ -266,12 +282,12 @@ class AvailableDogs {
     femHumans,
     maleHumans,
     city,
-    zip ,
+    zip,
     vax,
     special = false,
     service = false,
     breed2 = null,
-    state ,
+    state,
     ageDiff = 0,
     matchScore = 0
   ) {
@@ -303,7 +319,10 @@ class AvailableDogs {
   // Match Score Calculation
   calcMatchScore(userDog) {
     // console.log('Matching', this.dogName, 'with', userDog.dogName);
-    if (this.city.toLowerCase() === userDog.city.toLowerCase() || this.zip === userDog.zip) {
+    if (
+      this.city.toLowerCase() === userDog.city.toLowerCase() ||
+      this.zip === userDog.zip
+    ) {
       if (this.temperament === userDog.temperament) {
         this.matchScore += 5;
       }
@@ -334,16 +353,16 @@ class AvailableDogs {
         this.matchScore += 2;
       }
       if (this.matchScore > 0) {
-        // Push the dogs with a match score over 15 to a specific array
-        matchedDogsArray.push({
-          [this.dogName]: this,
-
-          matchScore: this.matchScore,
-        });
+        // matchedDogsArray.push({...this});
+        console.log('Matched Dogs Array: ', matchedDogsArray);
       }
+      // [this.dogName]: this,
+
+      // matchScore: this.matchScore,
+
       // console.log('Matched Dogs Array:', matchedDogsArray);
 
-      return this.matchScore;
+      return matchedDogsArray.push(this);
     } else {
       console.log('no match available in your area');
     }
@@ -394,7 +413,6 @@ function initDogs() {
     shuffledHumans.length,
     shuffledCity.length,
     shuffledZip.length
-
   );
 
   /* modulo operator (%) is used to cycle through the arrays. This way, even if one array runs out of elements, it will start again from the beginning of that array */
@@ -461,7 +479,7 @@ form?.addEventListener('submit', function (event) {
       .checked,
     service: document.getElementById('service').querySelector('input').checked,
   };
-  // console.log('Form Data:', formData);
+
   const newDog = new UserDog(formData);
   newUserDogs.push(newDog);
 
@@ -472,7 +490,7 @@ form?.addEventListener('submit', function (event) {
 
   // Render matches after calculating match scores
   topDogs = renderMatches();
-  saveTopDogs();
+  saveTopDogs(topDogs);
 
   // Check if the table has not been rendered yet
   if (!tableRendered) {
@@ -481,8 +499,9 @@ form?.addEventListener('submit', function (event) {
   }
 
   // Change the header text when the table is rendered
-  document.getElementById('mainHeader').textContent = `Here are your dog's Buddies!`;
-
+  document.getElementById(
+    'mainHeader'
+  ).textContent = `Here are your dog's Buddies!`;
 });
 
 function renderOnScreen(topDogsData) {
@@ -518,8 +537,6 @@ function renderOnScreen(topDogsData) {
   let dog2Array = bothDogsArray.slice(midIndex, length - 1);
 
   ////// RENDER TABLE /////////////////////////////////
-
-
 
   renderHeader();
 
@@ -634,7 +651,6 @@ function renderOnScreen(topDogsData) {
   button2.addEventListener('click', function () {
     window.location.href = 'mailto:' + emailAddressTwo;
   });
-
 }
 
 // global reference to container referenced by DOM
@@ -698,17 +714,16 @@ function renderHeader() {
   ownerContactHeaderCell.textContent = 'Owner Contact';
 }
 
-
 //////////////////////////////////////////////////////
 ///////////// MATCH ALGORITHM ////////////////////////
 ////////////////////////////////////////////////////
 
 function renderMatches() {
   // Sort the availableDogs array by matchScore in descending order
-  matchedDogsArray.sort((a, b) => b.matchScore - a.matchScore);
+  availableDogs.sort((a, b) => b.matchScore - a.matchScore);
 
   // Take the top 2 dogs
-  const topDogs = matchedDogsArray.slice(0, 2);
+  const topDogs = availableDogs.slice(0, 2);
 
   // console.log('Top Dogs with the highest matchScore:', topDogs);
   // console.log(availableDogs);
@@ -722,13 +737,10 @@ function renderMatches() {
 ///////////// LOCAL STORAGE ////////////////////////
 ////////////////////////////////////////////////////
 
-
 const matchKey = 'matchKey';
 
-
-function saveTopDogs() {
+function saveTopDogs(topDogs) {
   // const topDogs = renderMatches();
   const matchStorageText = JSON.stringify(topDogs); // convert array to string
   localStorage.setItem(matchKey, matchStorageText); // set value
 }
-
