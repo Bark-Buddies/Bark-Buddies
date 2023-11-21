@@ -1,7 +1,7 @@
 'use strict';
 
 const availableDogs = []; // Array to store created dogs instances
-
+let topDogs = []; // Array to store top dog matches
 
 ////////////////////////////////
 //// CREATE DOG DATA //////////
@@ -498,14 +498,11 @@ form?.addEventListener('submit', function (event) {
 });
 
 function renderOnScreen() {
-  ////// RENDER TABLE /////////////////////////////////
-
   renderHeader();
   renderTableData(topDogs);
 }
 
-
-
+////// RENDER TABLE /////////////////////////////////
 function renderTableData(topDogs) {
   // add tbody element
   const tableBodyElem = document.createElement('tbody');
@@ -520,7 +517,7 @@ function renderTableData(topDogs) {
 
     // add <td> for match number
     dataRow.appendChild(createTableCell('Match ' + matchNum));
-    matchNum++;
+    matchNum++; // increment match number for each topDog
 
     dataRow.appendChild(createTableCell(topDogs[i].ownerName));
     dataRow.appendChild(createTableCell(topDogs[i].dogName));
@@ -531,31 +528,31 @@ function renderTableData(topDogs) {
     dataRow.appendChild(createTableCell(topDogs[i].favActivity));
     const buttonCell = createContactButton(topDogs[i].ownerEmail);
     dataRow.appendChild(buttonCell);
-    
   }
+}
 
-  function createTableCell(content) {
-    const cell = document.createElement('td');
-    cell.textContent = content;
-    return cell;
-  }
+function createTableCell(content) {
+  const cell = document.createElement('td');
+  cell.textContent = content;
+  return cell;
+}
 
-  function createContactButton(emailAddress) {
-    const button = document.createElement('button');
-    button.textContent = 'Contact Me!';
-    // dataRow.appendChild(button);
-    button.classList.add('matchButton');
+function createContactButton(emailAddress) {
+  const button = document.createElement('button');
+  button.textContent = 'Contact Me!';
+  // dataRow.appendChild(button);
+  button.classList.add('matchButton');
 
-    // create contact cell <td> element and append
-    const ownerContactCell = document.createElement('td');
-    ownerContactCell.appendChild(button);
-    
-    button.addEventListener('click', function () {
-      window.location.href = 'mailto:' + emailAddress;
-    });
+  // create contact cell <td> element and append
+  const ownerContactCell = document.createElement('td');
+  ownerContactCell.appendChild(button);
 
-    return ownerContactCell;
-  }
+  button.addEventListener('click', function () {
+    window.location.href = 'mailto:' + emailAddress;
+  });
+
+  return ownerContactCell;
+}
 
 // global reference to container referenced by DOM
 const articleElem = document.createElement('article');
@@ -648,36 +645,3 @@ function saveAllDogs(availableDogs) {
   const allDogsStorageText = JSON.stringify(availableDogs); // convert array to string
   localStorage.setItem(allDogsKey, allDogsStorageText); // set value
 }
-
-
-// OLD WORKAROUND FOR DOUBLE NESTED OBJECT
-// console.log(topDogsData);
-// let bothDogsArray = [];
-// for (let dogObj of topDogsData) {
-//   let dogName = Object.keys(dogObj)[0];
-//   bothDogsArray.push(dogObj[dogName].ownerName); // index 0
-//   bothDogsArray.push(dogObj[dogName].dogName); // 1
-//   bothDogsArray.push(dogObj[dogName].breed1); // 2
-//   bothDogsArray.push(dogObj[dogName].dogAge); // 3
-//   bothDogsArray.push(dogObj[dogName].dogSize); // 4
-//   bothDogsArray.push(dogObj[dogName].activityLevel); // 5
-//   bothDogsArray.push(dogObj[dogName].favActivity); // 6
-//   bothDogsArray.push(dogObj[dogName].ownerEmail); // 7
-//   bothDogsArray.push(dogObj[dogName].state);
-//   bothDogsArray.push(dogObj[dogName].zip);
-//   bothDogsArray.push(dogObj[dogName].breed2);
-//   bothDogsArray.push(dogObj[dogName].temperament);
-//   bothDogsArray.push(dogObj[dogName].special);
-//   bothDogsArray.push(dogObj[dogName].fixed);
-//   bothDogsArray.push(dogObj[dogName].vax);
-//   bothDogsArray.push(dogObj[dogName].maleDogs);
-//   bothDogsArray.push(dogObj[dogName].femDogs);
-//   bothDogsArray.push(dogObj[dogName].maleHumans);
-//   bothDogsArray.push(dogObj[dogName].femHumans);
-//   bothDogsArray.push(dogObj[dogName].service);
-// }
-
-// let length = bothDogsArray.length;
-// let midIndex = length / 2;
-// let dog1Array = bothDogsArray.slice(0, midIndex);
-// let dog2Array = bothDogsArray.slice(midIndex, length - 1);
