@@ -1,6 +1,6 @@
 'use strict';
 
-const availableDogs = []; // Array to store created dogs instances
+let availableDogs = []; // Array to store created dogs instances
 let topDogs = []; // Array to store top dog matches
 
 ////////////////////////////////
@@ -636,6 +636,7 @@ function renderMatches() {
 const matchKey = 'matchKey';
 const allDogsKey = 'allDogsKey';
 
+// Save to local Storage
 function saveTopDogs(topDogs) {
   const matchStorageText = JSON.stringify(topDogs); // convert array to string
   localStorage.setItem(matchKey, matchStorageText); // set value
@@ -645,3 +646,73 @@ function saveAllDogs(availableDogs) {
   const allDogsStorageText = JSON.stringify(availableDogs); // convert array to string
   localStorage.setItem(allDogsKey, allDogsStorageText); // set value
 }
+
+function loadAllDogs(availableDogs) {
+  let retrievedDogsText = localStorage.getItem(allDogsKey);
+
+  if (retrievedDogsText) {
+    const dogsObj = JSON.parse(retrievedDogsText);
+    // directly pass availableDogs as a parameter to the loadAllDogs function, and then assign the result back to availableDogs without using `this`.
+    return dogsObj.map((rawObject) => {
+      return new AvailableDogs(
+        rawObject.dogName,
+        rawObject.temperament,
+        rawObject.activityLevel,
+        rawObject.favActivity,
+        rawObject.dogSize,
+        rawObject.dogAge,
+        rawObject.breed1,
+        rawObject.ownerName,
+        rawObject.ownerEmail,
+        rawObject.fixed,
+        rawObject.femDogs,
+        rawObject.maleDogs,
+        rawObject.femHumans,
+        rawObject.maleHumans,
+        rawObject.city,
+        rawObject.zip,
+        rawObject.vax,
+        rawObject.special,
+        rawObject.service,
+        rawObject.breed2,
+        rawObject.state,
+        rawObject.ageDiff,
+        rawObject.matchScore
+      );
+    });
+  } else {
+    return availableDogs;
+  }
+}
+
+// Call the function and update the availableDogs array
+availableDogs = loadAllDogs(availableDogs);
+
+/*
+class AvailableDogs {
+  constructor(
+    dogName,
+    temperament,
+    activityLevel,
+    favActivity,
+    dogSize,
+    dogAge,
+    breed1,
+    ownerName,
+    ownerEmail,
+    fixed,
+    femDogs,
+    maleDogs,
+    femHumans,
+    maleHumans,
+    city,
+    zip,
+    vax,
+    special = false,
+    service = false,
+    breed2 = null,
+    state,
+    ageDiff = 0,
+    matchScore = 0
+  ) {
+    */
