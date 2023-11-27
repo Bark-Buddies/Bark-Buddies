@@ -648,6 +648,7 @@ function saveAllDogs(availableDogs) {
 }
 
 function loadAllDogs(availableDogs) {
+  // retrieve data from local storage instead of creating new dogs with each form submission
   let retrievedDogsText = localStorage.getItem(allDogsKey);
 
   if (retrievedDogsText) {
@@ -688,31 +689,4 @@ function loadAllDogs(availableDogs) {
 // Call the function and update the availableDogs array
 availableDogs = loadAllDogs(availableDogs);
 
-/*
-class AvailableDogs {
-  constructor(
-    dogName,
-    temperament,
-    activityLevel,
-    favActivity,
-    dogSize,
-    dogAge,
-    breed1,
-    ownerName,
-    ownerEmail,
-    fixed,
-    femDogs,
-    maleDogs,
-    femHumans,
-    maleHumans,
-    city,
-    zip,
-    vax,
-    special = false,
-    service = false,
-    breed2 = null,
-    state,
-    ageDiff = 0,
-    matchScore = 0
-  ) {
-    */
+// TODO: clear the match score with each form submission
